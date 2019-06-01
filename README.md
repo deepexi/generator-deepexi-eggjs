@@ -1,9 +1,33 @@
 # DeepEXI EggJs Scaffold
 
-基于Yeoman
-
+此脚手架基于[Yeoman](https://yeoman.io/)构建。
 
 ## How To
+
+### Getting Started
+
+#### 1. 安装yeoman
+
+```bash
+$ npm install -g yo
+```
+
+#### 2. 安装generator-deepexi-eggjs
+
+```bash
+$ npm install -g generator-deepexi-eggjs
+```
+
+> 以上方式尚不支持，请先clone此项目到本地并npm link来进行使用
+
+#### 3. 创建你的应用
+
+```bash
+$ yo deepexi-eggjs
+```
+
+
+## Development Reference
 
 ### 扩展Prompting
 
