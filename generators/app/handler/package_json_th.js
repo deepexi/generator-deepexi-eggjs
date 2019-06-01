@@ -6,24 +6,27 @@ const fileUtils = require('../../util/file_utils')
 
 class PackageJsonTemplateHandler extends AbstractTemplateHandler {
   handle () {
+    const pkgJson = JSON.parse(this._readTemplate());
+    this._extend(pkgJson)
+
+    this.generator.fs.writeJSON(this.generator.destinationPath(fileUtils.tmplToFileName(this.tmpl)), pkgJson);
+  }
+
+  _readTemplate () {
     const tpl = _.template(this.generator.fs.read(this.generator.templatePath(this.tmpl)));
     const pkgTxt = tpl(this.props);
-
-    const pkg = JSON.parse(pkgTxt);
-    this._extend(pkg)
-
-    this.generator.fs.writeJSON(this.generator.destinationPath(fileUtils.tmplToFileName(this.tmpl)), pkg);
+    return pkgTxt;
   }
 
-  _extend (pkg) {
-    this._extendDependencies(pkg, '@deepexi/eureka', '^1.0.0');
+  _extend (pkgJson) {
+    this._extendDependencies(pkgJson, '@deepexi/eureka', '^1.0.0');
   }
 
-  _extendDependencies (pkg, pkgName, version) {
-    if (!pkg.dependencies) {
-      pkg.dependencies = {};
+  _extendDependencies (pkgJson, pkgName, version) {
+    if (!pkgJson.dependencies) {
+      pkgJson.dependencies = {};
     }
-    pkg.dependencies[pkgName] = version;
+    pkgJson.dependencies[pkgName] = version;
   }
 }
 
