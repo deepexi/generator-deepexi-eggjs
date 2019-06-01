@@ -10,7 +10,8 @@ describe('generate app', () => {
     return helpers
       .run(path.join(__dirname, '../../app'))
       .withPrompts({
-        projectName: 'taccisum-service'
+        projectName: 'taccisum-service',
+        author: 'taccisum'
       })
       .then(() => {
       })

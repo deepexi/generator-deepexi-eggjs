@@ -1,34 +1,9 @@
 'use strict'
-var Generator = require('yeoman-generator')
+var Generator = require('yeoman-generator');
 
-const _ = require('lodash')
-const path = require('path')
-const fileUtils = require('../util/file_utils')
-
-class AbstractTemplateHandler {
-  constructor (tmpl, generator, props) {
-    this.tmpl = tmpl;
-    this.generator = generator;
-    this.props = props;
-  }
-}
-
-class DefaultTemplateHandler extends AbstractTemplateHandler {
-  handle () {
-    const readmeTpl = _.template(this.generator.fs.read(this.generator.templatePath(this.tmpl)))
-    this.generator.fs.write(this.generator.destinationPath(fileUtils.tmplToFileName(this.tmpl)), readmeTpl(this.props))
-  }
-}
-
-class TemplateHandlerFactory {
-  static create (tmpl, generator, props) {
-    switch (tmpl) {
-      default: {
-        return new DefaultTemplateHandler(tmpl, generator, props);
-      }
-    }
-  }
-}
+const path = require('path');
+const fileUtils = require('../util/file_utils');
+const TemplateHandlerFactory = require('./handler/factory');
 
 module.exports = class extends Generator {
   catch (e) {
