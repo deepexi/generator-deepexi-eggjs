@@ -19,6 +19,7 @@ describe('file utils', () => {
     it('is template', () => {
       assert(fileUtils.isTemplate('foo.tmpl.js'))
       assert(fileUtils.isTemplate('foo.tmpl'))
+      assert(fileUtils.isTemplate('.tmpl.gitignore'))
       assert(fileUtils.isTemplate('app/foo.tmpl.js'))
       assert(fileUtils.isTemplate('app/foo.tmpl'))
     })

@@ -20,9 +20,12 @@ describe('generate app', () => {
   it('should exists project files', () => {
     assert.file('app.js')
     assert.file('.gitignore')
+    assert.file('.npmrc')
     assert.file('.eslintrc')
     assert.file('.eslintignore')
     assert.file('.autod.conf.js')
+    assert.file('filebeat.yml')
+    assert.file('start-fb.sh')
     assert.file('start-code.sh')
     assert.file('package.json')
     assert.file('Dockerfile')
@@ -32,6 +35,11 @@ describe('generate app', () => {
 
   it('should exists app files', () => {
     assert.file('app/controller/home.js')
+  })
+
+  it('should exists domain files', () => {
+    assert.file('modules/domain/index.js')
+    assert.file('modules/domain/package.json')
   })
 
   it('should exists config files', () => {
