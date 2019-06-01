@@ -97,9 +97,9 @@ module.exports = appInfo => {
         // ipAddr: '127.0.0.1',
         // port: 7001,
         // vipAddress: 'deepexi.devops.vip',
-        statusPageUrl: \`http://\${instanceIp}:\${instancePort}/\${config.appContext}/info\`,
-        homePageUrl: \`http://\${instanceIp}:\${instancePort}/\${config.appContext}\`,
-        healthPageUrl: \`http://\${instanceIp}:\${instancePort}/\${config.appContext}/health\`,
+        statusPageUrl: \`/\${userConfig.context}/info\`,
+        homePageUrl: \`/\${userConfig.context}\`,
+        healthPageUrl: \`/\${userConfig.context}/health\`,
       },
       server: {
         // host: '192.168.0.239',

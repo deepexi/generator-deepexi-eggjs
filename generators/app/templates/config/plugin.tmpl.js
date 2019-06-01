@@ -9,10 +9,10 @@ module.exports = {
   <%
     if(dependencies.eureka){
       print(`
-  eureka = {
+  eureka: {
     enable: true,
     package: '@taccisum/egg-eureka',
-  };
+  },
       `)
     }
   %>

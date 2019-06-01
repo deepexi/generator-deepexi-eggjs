@@ -6,7 +6,7 @@ module.exports = () => {
     if(dependencies.eureka){
       print(`
     eureka: {
-      enabled: true,
+      enabled: false,
       client: {
         instance: {
           ipAddr: '127.0.0.1',
