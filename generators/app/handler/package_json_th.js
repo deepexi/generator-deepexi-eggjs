@@ -19,7 +19,7 @@ class PackageJsonTemplateHandler extends AbstractTemplateHandler {
   }
 
   _extend (pkgJson) {
-    this._extendDependencies(pkgJson, '@deepexi/eureka', '^1.0.0');
+    this._extendDependencies(pkgJson, '@taccisum/eureka', '^1.0.1');
   }
 
   _extendDependencies (pkgJson, pkgName, version) {
