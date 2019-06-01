@@ -1,0 +1,24 @@
+{
+  "name": "generator-deepexi-eggjs",
+  "version": "1.0.0",
+  "description": "deepexi eggjs scaffold",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^1.1.1"
+  },
+  "devDependencies": {
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^2.0.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha generators/test/**/*.test.js"
+  },
+  "author": "taccisum",
+  "license": "ISC"
+}
