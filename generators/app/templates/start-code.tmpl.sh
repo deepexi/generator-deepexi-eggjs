@@ -1,23 +1,29 @@
 #!/bin/bash
 
 cd `dirname $0`
-#更新代码
+
 git pull
 
-#下载依赖
-#docker run --rm -v "$PWD":/root -w /root node npm install -g python && npm install
+<%
+    if (orgName) {
+        print(`
+img_name=${orgName}/${projectName}
+        `)
+    } else {
+        print(`
+img_name=${projectName}
+        `)
+    }
+%>
+container_name=${projectName}
 
-#构建镜像
-docker build -t foreveross/fcbb-dc .
+docker build -t  $img_name
 
-#删除容器
-docker rm -f fcbb-dc &> /dev/null
-
+docker rm -f $container_name &> /dev/null
 docker run -d --restart=on-failure:5 \
     -w /root \
-    -e nats_cid=crawler_api_1 \
-    -p 5002:5002 \
+    -p 7001:7001 \
     -v $PWD/logs/:/root/logs/  \
     -v $PWD/run/:/root/run/  \
     -v $PWD/node_modules/:/root/node_modules/  \
-    --name fcbb-dc foreveross/fcbb-dc
+    --name $container_name $img_name

@@ -10,7 +10,7 @@ git checkout -- filebeat.yml
 <%= "sed -i s/{{elk_env}}/$elk_env/ filebeat.yml" %>
 <%= "sed -i s/{{elk_logstash}}/$elk_logstash/ filebeat.yml" %>
 
-app_id={{projectName}}
+app_id=${projectName}
 
 # 删除容器
 docker rm -f fb-$app_id
