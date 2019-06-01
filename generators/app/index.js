@@ -27,6 +27,9 @@ module.exports = class extends Generator {
       }
     ])
     this.props = answers
+    this.props.dependencies = {
+      eureka: true
+    }
   }
 
   write () {
