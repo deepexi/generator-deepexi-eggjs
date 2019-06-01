@@ -22,9 +22,8 @@ module.exports = class extends Generator {
       },
       {
         type: 'input',
-        name: 'projectTitle',
-        message: 'Your project title',
-        default: 'DeepEXI EggJs'
+        name: 'author',
+        message: 'Your name'
       }
     ])
     this.props = answers
