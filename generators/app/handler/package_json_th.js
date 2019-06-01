@@ -13,13 +13,17 @@ class PackageJsonTemplateHandler extends AbstractTemplateHandler {
     this._extend(pkg)
 
     this.generator.fs.writeJSON(this.generator.destinationPath(fileUtils.tmplToFileName(this.tmpl)), pkg);
-    console.log(pkg);
   }
 
   _extend (pkg) {
-    _.assignIn(pkg.dependencies, {
-      '@deepexi/eureka': '^1.0.0'
-    });
+    this._extendDependencies(pkg, '@deepexi/eureka', '^1.0.0');
+  }
+
+  _extendDependencies (pkg, pkgName, version) {
+    if (!pkg.dependencies) {
+      pkg.dependencies = {};
+    }
+    pkg.dependencies[pkgName] = version;
   }
 }
 

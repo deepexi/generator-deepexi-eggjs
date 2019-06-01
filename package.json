@@ -23,7 +23,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "mocha generators/test/**/*.test.js",
+    "test": "mocha generators/test/**/*.test.js --reporter spec",
     "lint": "eslint ."
   },
   "author": "taccisum",
