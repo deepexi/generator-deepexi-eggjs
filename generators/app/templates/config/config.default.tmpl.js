@@ -75,15 +75,45 @@ module.exports = appInfo => {
 
   config.logrotator = {
     filesRotateBySize: [
-      path.join(appInfo.root, 'logs', appInfo.name, 'fcbb-dc-web.log')
+      path.join(appInfo.root, 'logs', appInfo.name, userConfig.appName + '-web.log')
     ],
     maxFileSize: 5 * 1024
   };
 
   config.logger = {
     level: 'DEBUG',
-    consoleLevel: 'DEBUG'
+    consoleLevel: 'DEBUG',
+    outputJSON: true
   };
+
+  <%
+  if(dependencies.eureka){
+    print(`
+  config.eureka = {
+    enabled: process.env.ENABLE_EUREKA || false,
+    client: {
+      instance: {
+        app: userConfig.appName,
+        // ipAddr: '127.0.0.1',
+        // port: 7001,
+        // vipAddress: 'deepexi.devops.vip',
+        statusPageUrl: \`http://\${instanceIp}:\${instancePort}/\${config.appContext}/info\`,
+        homePageUrl: \`http://\${instanceIp}:\${instancePort}/\${config.appContext}\`,
+        healthPageUrl: \`http://\${instanceIp}:\${instancePort}/\${config.appContext}/health\`,
+      },
+      server: {
+        // host: '192.168.0.239',
+        port: 8761,
+      },
+      // auth: {
+        // user: 'admin',
+        // password: 'deepexi',
+      // },
+    },
+  };
+    `)
+  }
+  %>
 
   return {
     ...config,
