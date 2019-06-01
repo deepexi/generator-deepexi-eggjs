@@ -14,30 +14,23 @@ module.exports = appInfo => {
 
   // 应用需要的自定义配置写在这里
   const userConfig = {
-    appName: '{{projectName}}',
-    context: '{{projectName}}'
+    context: appInfo.name 
   };
 
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1559316688233_5201';
 
-  // add your middleware config here
-  config.middleware = [];
-  // should change to your own
-  config.keys = appInfo.name + '_api&fcuibaba-TMS';
-
-  // add your config here
-
-  // ###### 框架自带的中间件配置区 ######
   config.bodyParser = {
     jsonLimit: '10mb'
   };
 
-  // ###### 外部中间件配置区 ######
-
   // 配置需要的中间件，数组顺序即为中间件的加载顺序，这里的话gzip会去找 middleware/gzip.js
-  config.middleware = ['requestId', 'compress', 'notfoundHandler'];
-  // config.middleware = [ 'requestId', 'compress', 'errorHandler', 'notfoundHandler' ];
+  config.middleware = [
+    'requestId',
+    'compress',
+    'errorHandler',
+    'notfoundHandler'
+  ];
 
   config.compress = {
     threshold: 2048,
@@ -75,7 +68,7 @@ module.exports = appInfo => {
 
   config.logrotator = {
     filesRotateBySize: [
-      path.join(appInfo.root, 'logs', appInfo.name, userConfig.appName + '-web.log')
+      path.join(appInfo.root, 'logs', appInfo.name, appInfo.name + '-web.log')
     ],
     maxFileSize: 5 * 1024
   };
@@ -87,13 +80,13 @@ module.exports = appInfo => {
   };
 
   <%
-  if(dependencies.eureka){
+  if (dependencies.eureka) {
     print(`
   config.eureka = {
     enabled: process.env.ENABLE_EUREKA || false,
     client: {
       instance: {
-        app: userConfig.appName,
+        app: appInfo.name,
         // ipAddr: '127.0.0.1',
         // port: 7001,
         // vipAddress: 'deepexi.devops.vip',

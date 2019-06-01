@@ -14,10 +14,7 @@ process.on('uncaughtException', err => {
   // process.exit(1)
 });
 
-// 根据model创表
 module.exports = app => {
   app.beforeStart(async () => {
-    // 应用会等待这个函数执行完成才启动
-    await app.model.sync(); // .sync({force: true}) => force: true will drop the table if it already exists
   });
 };
