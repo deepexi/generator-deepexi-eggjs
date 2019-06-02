@@ -15,7 +15,7 @@ describe('test/app/controller/home.test.js', () => {
   it('should GET /${projectName}', () => {
     return app.httpRequest()
       .get('/${projectName}')
-      .expect('hi, egg')
+      .expect('{"success":true,"payload":"hi, egg"}')
       .expect(200)
   });
 });

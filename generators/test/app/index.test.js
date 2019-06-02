@@ -87,6 +87,14 @@ describe('package.json content', () => {
       assert(pkg.dependencies['egg-validate-plus']);
       assert(pkg.dependencies['@taccisum/egg-eureka']);
     })
+
+    it('should have config', () => {
+      assert.fileContent([
+        ['config/config.default.js', /config.eureka.*=/],
+        ['config/config.local.js', /eureka.*:/],
+        ['config/plugin.js', /eureka.*:/]
+      ])
+    })
   })
 
   describe('optional dependencies', () => {
