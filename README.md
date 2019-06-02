@@ -20,6 +20,13 @@ $ npm install -g generator-deepexi-eggjs
 
 > 以上方式尚不支持，请先clone此项目到本地并npm link来进行使用
 
+```bash
+$ git clone http://gitlab.deepexi.top/taccisum/generator-deepexi-eggjs
+$ cd generator-deepexi-eggjs
+$ npm i
+$ npm link
+```
+
 #### 3. 创建你的应用
 
 ```bash
