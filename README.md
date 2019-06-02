@@ -45,3 +45,11 @@ $ yo deepexi-eggjs
 ### 增加模板文件
 
 所有模板文件必须以`*.tmpl.*`或`*.tmpl`命名，放在`/generators/app/templates`目录下。脚手架生成时会自动递归扫描该目录，并将模板进行解析，生成相应的文件。
+
+### 指定template handler
+
+如果不做特殊处理，所有的模板文件都会默认通过`/generators/app/handler/default_th`进行处理。
+
+假如这并不能满足你的需求，你需要对某些模板文件做特殊的处理，可以在`/generators/app/handler`目录下扩展你的handler类（命名规范为`*_th.js`，th意为template handler）。该handler类必须继承自`/generators/app/handler/abstract_template_handler`。
+
+最后在`/generators/app/handler/factory`中将你的handler与模板文件关联起来。

@@ -6,6 +6,10 @@ class AbstractTemplateHandler {
     this.generator = generator;
     this.props = props;
   }
+
+  handle () {
+    throw new Error('must implement handle()');
+  }
 }
 
 module.exports = AbstractTemplateHandler;
