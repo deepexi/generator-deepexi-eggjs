@@ -17,7 +17,7 @@ img_name=${projectName}
 %>
 container_name=${projectName}
 
-docker build -t  $img_name
+docker build -t $img_name
 
 docker rm -f $container_name &> /dev/null
 docker run -d --restart=on-failure:5 \
