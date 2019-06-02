@@ -14,7 +14,7 @@ module.exports = appInfo => {
 
   // 应用需要的自定义配置写在这里
   const userConfig = {
-    context: appInfo.name 
+    context: appInfo.name
   };
 
   // use for cookie sign key, should change to your own and keep security
@@ -105,6 +105,39 @@ module.exports = appInfo => {
     },
   };
     `)
+  }
+  switch (db) {
+    case 'mongo': {
+      print(`
+  config.mongoose = {
+    // url: \`mongodb://\${process.env.DB_HOST || '127.0.0.1:27017'}/your_db\`,
+    options: {},
+  };
+      `);
+      break;
+    }
+    case 'mysql':{
+      print(`
+  config.sequelize = {
+    dialect: 'mysql',
+    // database: 'your_db',
+    // host: process.env.DB_HOST || '127.0.0.1',
+    port: '3306',
+    username: 'root',
+    // password: 'your_password',
+    pool: {
+      max: 8,
+      min: 0,
+      idle: 10000,
+    },
+    timezone: '+08:00',
+  };
+      `)
+      break;
+    }
+    default: {
+      break;
+    }
   }
   %>
 

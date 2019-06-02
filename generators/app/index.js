@@ -8,9 +8,9 @@ const regUtils = require('../util/reg_utils');
 
 module.exports = class extends Generator {
   catch (e) {
-    if (e) {
-      console.log(e)
-    }
+    // if (e) {
+    // console.log(e)
+    // }
   };
 
   async prompting () {
@@ -52,6 +52,16 @@ module.exports = class extends Generator {
             return '名称不能为空';
           }
         }
+      },
+      {
+        type: 'list',
+        choices: [
+          'mongo',
+          'mysql',
+          'none'
+        ],
+        name: 'db',
+        message: '请选择你使用的数据库'
       }
     ])
     this.props = answers

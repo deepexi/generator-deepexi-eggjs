@@ -12,7 +12,8 @@
     "egg-validate": "^2.0.0",
     "koa-compress": "2.0.0",
     "koa-requestid": "2.0.1",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "egg-validate-plus": "^1.1.6"
   },
   "devDependencies": {
     "autod": "^3.0.1",

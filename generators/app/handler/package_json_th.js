@@ -22,6 +22,19 @@ class PackageJsonTemplateHandler extends AbstractTemplateHandler {
     if (this.props.dependencies.eureka) {
       this._extendDependencies(pkgJson, '@taccisum/egg-eureka', '^1.0.1');
     }
+    switch (this.props.db) {
+      case 'mongo': {
+        this._extendDependencies(pkgJson, 'egg-mongoose', '^3.1.3');
+        break;
+      }
+      case 'mysql': {
+        this._extendDependencies(pkgJson, 'egg-sequelize', '^4.1.0');
+        break;
+      }
+      default: {
+        break;
+      }
+    }
   }
 
   _extendDependencies (pkgJson, pkgName, version) {

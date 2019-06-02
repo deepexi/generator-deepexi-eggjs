@@ -6,6 +6,10 @@ module.exports = {
   // static: {
   //   enable: true,
   // }
+  validatePlus: {
+    enable: true,
+    package: 'egg-validate-plus',
+  },
   <%
     if(dependencies.eureka){
       print(`
@@ -14,6 +18,29 @@ module.exports = {
     package: '@taccisum/egg-eureka',
   },
       `)
+    }
+    switch(db){
+      case 'mongo':{
+      print(`
+  mongoose: {
+    enable: true,
+    package: 'egg-mongoose',
+  },
+      `)
+        break;
+      }
+      case 'mysql': {
+      print(`
+  sequelize: {
+    enable: true,
+    package: 'egg-sequelize',
+  },
+      `)
+        break;
+      }
+      default: {
+        break;
+      }
     }
   %>
 
