@@ -1,4 +1,4 @@
-FROM node:lastest
+FROM node:latest
 
 USER root
 

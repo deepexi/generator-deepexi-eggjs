@@ -1,22 +1,28 @@
 'use strict';
 
 const DefaultTemplateHandler = require('./default_th');
+const StartCodeTemplateHandler = require('./start_code_sh_th');
 const DockerfileTemplateHandler = require('./dockerfile_th');
 const PackageJsonTemplateHandler = require('./package_json_th');
 
 class TemplateHandlerFactory {
   static create (tmpl, generator, props) {
+    let Cls;
     switch (tmpl) {
       case 'package.tmpl.json': {
-        return new PackageJsonTemplateHandler(tmpl, generator, props);
+        Cls = PackageJsonTemplateHandler; break;
       }
       case '.tmpl.Dockerfile': {
-        return new DockerfileTemplateHandler(tmpl, generator, props);
+        Cls = DockerfileTemplateHandler; break;
+      }
+      case 'start-code.tmpl.sh': {
+        Cls = StartCodeTemplateHandler; break;
       }
       default: {
-        return new DefaultTemplateHandler(tmpl, generator, props);
+        Cls = DefaultTemplateHandler; break;
       }
     }
+    return new Cls(tmpl, generator, props);
   }
 }
 
