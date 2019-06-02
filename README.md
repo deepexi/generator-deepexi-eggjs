@@ -23,6 +23,8 @@ $ npm install -g generator-deepexi-eggjs
 #### 3. 创建你的应用
 
 ```bash
+$ mdir {your_project_name}
+$ cd {your_project_name}
 $ yo deepexi-eggjs
 ```
 
