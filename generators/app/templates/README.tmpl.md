@@ -1,8 +1,8 @@
 # ${projectName}
 
-## How To
+## 如何运行
 
-### Development
+### 本地开发
 
 ```bash
 $ npm i
@@ -10,16 +10,27 @@ $ npm run dev
 $ open http://localhost:7001/${projectName}
 ```
 
-### Deploy
+### 部署
+
+#### 进程启动
 
 ```bash
+$ npm i
 $ npm start
 $ npm stop
 ```
 
-### npm scripts
+#### 容器启动
 
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
-- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
+````bash
+$ sh start-code.sh [-bl]
+````
 
+- -b: 是否从本地构建镜像
+- -l: 是否在启动后输出容器日志
+
+### 其它指令
+
+- 使用 `npm run lint` 检查你的代码风格
+- 使用 `npm test` 执行单元测试
+- 使用 `npm run autod` 自动检查依赖升级，更多细节查看[autod](https://www.npmjs.com/package/autod)
