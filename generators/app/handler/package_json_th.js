@@ -29,6 +29,7 @@ class PackageJsonTemplateHandler extends AbstractTemplateHandler {
       }
       case 'mysql': {
         this._extendDependencies(pkgJson, 'egg-sequelize', '^4.1.0');
+        this._extendDependencies(pkgJson, 'mysql2', '1.6.4');
         break;
       }
       default: {

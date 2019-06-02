@@ -140,6 +140,7 @@ describe('package.json content', () => {
 
       it('should have dependencies', () => {
         assert(pkg.dependencies['egg-sequelize']);
+        assert(pkg.dependencies['mysql2']);
       })
 
       it('should have config', () => {
