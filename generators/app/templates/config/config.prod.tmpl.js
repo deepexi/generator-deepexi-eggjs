@@ -5,6 +5,15 @@ module.exports = () => {
     logger: {
       level: 'INFO',
       consoleLevel: 'INFO'
-    }
+    },
+    <%
+    if (dependencies.swagger) {
+      print(`
+    swaggerdoc: {
+      enable: false,  // 生产环境下禁用swagger
+    },
+    `);
+      }
+    %>
   };
 };

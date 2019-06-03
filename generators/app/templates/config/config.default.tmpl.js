@@ -106,6 +106,35 @@ module.exports = appInfo => {
   };
     `)
   }
+
+  if (dependencies.swagger) {
+    print(`
+  config.swaggerdoc = {
+    enable: true,
+    basePath: '/' + appInfo.name,
+    dirScanner: './app/controller',
+    apiInfo: {
+      title: appInfo.name + ' Api Docs',
+      description: 'your desc here.',
+      version: '1.0.0',
+    },
+    schemes: [ 'http', 'https' ],
+    consumes: [ 'application/json' ],
+    produces: [ 'application/json' ],
+    securityDefinitions: {
+      apikey: {
+        type: 'apiKey',
+        name: 'token',
+        in: 'header',
+      },
+    },
+    enableSecurity: false,
+    enableValidate: false,
+    routerMap: false,
+  };
+    `);
+  }
+
   switch (db) {
     case 'mongo': {
       print(`

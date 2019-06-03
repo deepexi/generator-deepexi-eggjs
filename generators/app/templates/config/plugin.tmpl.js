@@ -17,7 +17,15 @@ module.exports = {
     enable: true,
     package: '@taccisum/egg-eureka',
   },
-      `)
+      `);
+    }
+    if(dependencies.swagger){
+      print(`
+  swaggerdoc: {
+    enable: true,
+    package: 'egg-swagger-doc',
+  },
+      `);
     }
     switch(db){
       case 'mongo':{

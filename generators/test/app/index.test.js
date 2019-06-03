@@ -86,13 +86,18 @@ describe('package.json content', () => {
       assert(pkg.dependencies['lodash']);
       assert(pkg.dependencies['egg-validate-plus']);
       assert(pkg.dependencies['@taccisum/egg-eureka']);
+      assert(pkg.dependencies['egg-swagger-doc']);
     })
 
     it('should have config', () => {
       assert.fileContent([
         ['config/config.default.js', /config.eureka.*=/],
         ['config/config.local.js', /eureka.*:/],
-        ['config/plugin.js', /eureka.*:/]
+        ['config/plugin.js', /eureka.*:/],
+
+        ['config/config.default.js', /config.swagger.*=/],
+        ['config/config.prod.js', /swagger.*:/],
+        ['config/plugin.js', /swagger.*:/]
       ])
     })
   })

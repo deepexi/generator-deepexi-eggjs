@@ -2,10 +2,29 @@
 
 const Controller = require('egg').Controller;
 
+<%
+print(`
+/**
+ * @controller home
+ */
+`)
+%>
 class HomeController extends Controller {
-  async index () {
+  <%
+  print(`
+  /**
+   * @summary index
+   * @description say hello when you access
+   * @router get /
+   * @response 200 msg
+   */
+  `)
+  %>
+  async index() {
     const { ctx } = this;
-    ctx.body = 'hi, egg';
+    ctx.body = {
+      msg: 'hi, guy'
+    };
   }
 }
 

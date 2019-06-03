@@ -4,9 +4,19 @@ var Generator = require('yeoman-generator');
 const path = require('path');
 const fileUtils = require('../util/file_utils');
 const TemplateHandlerFactory = require('./handler/factory');
-const regUtils = require('../util/reg_utils');
 
 module.exports = class extends Generator {
+  constructor (args, opts) {
+    super(args, opts);
+
+    this.option('command', { desc: '使用命令模式（非交互操作）', alias: 'c', type: Boolean, default: false });
+
+    this.option('orgName', { desc: '组织名称', type: String, default: '' });
+    this.option('projectName', { desc: '项目名称', type: String, default: 'deepexi-eggjs' });
+    this.option('author', { desc: '作者', type: String, default: 'taccisum' });
+    this.option('db', { desc: '数据库', type: String, default: 'none' });
+  }
+
   catch (e) {
     // if (e) {
     // console.log(e)
@@ -14,59 +24,20 @@ module.exports = class extends Generator {
   };
 
   async prompting () {
-    const answers = await this.prompt([
-      {
-        type: 'input',
-        name: 'orgName',
-        message: '请输入你的组织名称（可空）',
-        validate: (msg) => {
-          if (!msg) {
-            return true;
-          }
-          // TODO:: check org name
-          // if (regUtils.isWord(msg)) {
-          //   return true;
-          // } else {
-          //   return '组织名称只支持单个英文单词';
-          // }
-        }
-      },
-      {
-        type: 'input',
-        name: 'projectName',
-        message: '请输入你的项目名称',
-        default: 'deepexi-eggjs'
-      },
-      {
-        type: 'input',
-        name: 'author',
-        message: '请输入你的名称',
-        validate: (msg) => {
-          if (msg) {
-            if (regUtils.isEnglishName(msg)) {
-              return true;
-            } else {
-              return '只支持英文名称';
-            }
-          } else {
-            return '名称不能为空';
-          }
-        }
-      },
-      {
-        type: 'list',
-        choices: [
-          'mongo',
-          'mysql',
-          'none'
-        ],
-        name: 'db',
-        message: '请选择你使用的数据库'
+    if (!this.options.command) {
+      const answers = await this.prompt(require('./prompting'));
+      this.props = answers
+    } else {
+      this.props = {
+        orgName: this.options.orgName,
+        projectName: this.options.projectName,
+        author: this.options.author,
+        db: this.options.db
       }
-    ])
-    this.props = answers
+    }
     this.props.dependencies = {
-      eureka: true
+      eureka: true,
+      swagger: true
     }
   }
 
