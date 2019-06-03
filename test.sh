@@ -1,3 +1,6 @@
+# !/bin/bash
+# run this script for simple integration test
+
 [ -d test_proj ] && rm -rf test_proj
 
 mkdir -p test_proj/
