@@ -29,12 +29,27 @@ $ npm link
 
 #### 3. 创建你的应用
 
+通过交互模式创建
+
 ```bash
 $ mdir {your_project_name}
 $ cd {your_project_name}
 $ yo deepexi-eggjs
 ```
 
+或者使用命令行模式创建
+
+```bash
+$ mdir {your_project_name}
+$ cd {your_project_name}
+$ yo deepexi-eggjs -c
+```
+
+更多帮助信息可以通过以下命令查看
+
+```bash
+$ yo deepexi-eggjs --help
+```
 
 ## Development Reference
 
