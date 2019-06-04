@@ -47,7 +47,12 @@ if [ ! -z $build ];then
     [ ! $? -eq 0 ] && warn '获取最新代码失败'
     info '从本地构建镜像并运行'
     docker build -t $img_name .
-    success '完成镜像构建'
+    if [ $? -eq 0 ];then
+        success '完成镜像构建'
+    else
+        error '构建镜像失败'
+        exit 3
+    fi
 fi 
 
 info '删除已存在的容器' && docker rm -f $container_name
