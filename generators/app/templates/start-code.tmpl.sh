@@ -28,16 +28,15 @@ done
 cd `dirname $0`
 <%
     if (orgName) {
-        print(`
-img_name=${orgName}/${projectName}
-        `)
+        print(`img_name=${orgName}/${projectName}`)
     } else {
-        print(`
-img_name=${projectName}
-        `)
+        print(`img_name=${projectName}`)
     }
 %>
 container_name=${projectName}
+
+env=prod    # 应用执行环境
+workers=4   # eggjs的worker数量
 
 h1 '准备启动应用'$container_name'（基于docker）'
 
@@ -63,6 +62,8 @@ docker run -d --restart=on-failure:5 \
     -p 7001:7001 \
     -v $PWD/logs/:/root/logs/  \
     -v $PWD/run/:/root/run/  \
+    -e ENV=$env \
+    -e WORKERS=$workers \
     --name $container_name $img_name
 
 success '容器启动成功'
