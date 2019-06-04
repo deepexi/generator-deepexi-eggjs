@@ -10,6 +10,13 @@ $ npm run dev
 $ open http://localhost:7001/${projectName}
 ```
 
+<%
+if(dependencies.swagger){
+    print(`swagger地址：http://localhost:7001/swagger-ui.html\n`);
+    print(`swagger json：http://127.0.0.1:7001/swagger-doc\n`);
+}
+%>
+
 ### 部署
 
 #### 进程启动
