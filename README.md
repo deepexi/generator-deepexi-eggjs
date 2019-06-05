@@ -31,7 +31,7 @@ $ npm install -g generator-deepexi-eggjs
 本地安装
 
 ```bash
-$ git clone http://gitlab.deepexi.top/taccisum/generator-deepexi-eggjs
+$ git clone https://github.com/deepexi/generator-deepexi-eggjs.git
 $ cd generator-deepexi-eggjs
 $ npm i
 $ npm link
