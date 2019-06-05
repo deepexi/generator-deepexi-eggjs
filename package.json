@@ -26,7 +26,7 @@
   "scripts": {
     "test": "mocha generators/test/**/*.test.js --reporter spec",
     "lint": "eslint .",
-    "cov": "nyc npm run test"
+    "cov": "nyc npm run test && nyc report --reporter=text-lcov > coverage.lcov"
   },
   "repository": {
     "type": "git",
