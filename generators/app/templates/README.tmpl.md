@@ -38,6 +38,7 @@ $ sh start-code.sh [-bl]
 
 ### 其它指令
 
-- 使用 `npm run lint` 检查你的代码风格
+- 使用 `npm run lint [--fix]` 检查你的代码风格
 - 使用 `npm test` 执行单元测试
+- 使用 `npm run ci` 分析代码覆盖率
 - 使用 `npm run autod` 自动检查依赖升级，更多细节查看[autod](https://www.npmjs.com/package/autod)
