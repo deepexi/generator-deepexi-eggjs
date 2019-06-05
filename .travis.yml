@@ -6,6 +6,6 @@ cache: npm
 install:
   - npm i 
 before_script:
-  - npm i nyc -g
+  - npm i nyc mocha -g
 script:
   - npm run cov
