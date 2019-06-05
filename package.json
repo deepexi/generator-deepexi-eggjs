@@ -19,12 +19,14 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
     "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^2.0.0"
+    "yeoman-test": "^2.0.0",
+    "nyc": "^14.1.1"
   },
   "main": "index.js",
   "scripts": {
     "test": "mocha generators/test/**/*.test.js --reporter spec",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "cov": "nyc npm run test"
   },
   "repository": {
     "type": "git",
