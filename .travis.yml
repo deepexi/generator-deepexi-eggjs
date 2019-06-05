@@ -9,3 +9,5 @@ before_script:
   - npm i nyc mocha -g
 script:
   - npm run cov
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -f .nyc_output/processinfo/index.json
