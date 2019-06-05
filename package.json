@@ -26,6 +26,14 @@
     "test": "mocha generators/test/**/*.test.js --reporter spec",
     "lint": "eslint ."
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepexi/generator-deepexi-eggjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deepexi/generator-deepexi-eggjs/issues"
+  },
+  "homepage": "https://github.com/deepexi/generator-deepexi-eggjs#readme",
   "author": "taccisum",
   "license": "ISC"
 }
