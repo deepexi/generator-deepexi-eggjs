@@ -1,4 +1,4 @@
-# DeepEXI EggJs Scaffold
+# DeepEXI EggJs Scaffold Generator
 
 [![NPM version][npm-image]][npm-url]
 [![npm download][download-image]][download-url]
@@ -10,7 +10,7 @@
 [download-image]: https://img.shields.io/npm/dm/generator-deepexi-eggjs.svg
 [download-url]: https://www.npmjs.com/package/generator-deepexi-eggjs
 
-此脚手架基于[Yeoman](https://yeoman.io/)构建。
+此脚手架生成器基于[Yeoman](https://yeoman.io/)构建。
 
 ## How To
 
