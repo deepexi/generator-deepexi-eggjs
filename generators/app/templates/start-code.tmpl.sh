@@ -62,11 +62,17 @@ docker run -d --restart=on-failure:5 \
     -p 7001:7001 \
     -v $PWD/logs/:/root/logs/  \
     -v $PWD/run/:/root/run/  \
+    -v $PWD/override.js:/root/override.js \
     -e ENV=$env \
     -e WORKERS=$workers \
     --name $container_name $img_name
 
-success '容器启动成功'
+if [ $? -eq 0 ];then
+    success '容器启动成功'
+else
+    error '容器启动失败'
+    exit 4
+fi
 
 if [ ! -z $output_log ];then
     note '以下是docker容器启动输出，你可以通过ctrl-c中止它，这并不会导致容器停止'
