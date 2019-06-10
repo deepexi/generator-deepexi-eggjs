@@ -65,7 +65,7 @@ $ yo deepexi-eggjs --help
 
 #### 4. 自行修改配置
 
-脚手架对自动集成的第三方插件都提供了默认的配置，但是有一些外部资源依赖（如mysql db, eureka service等）可能需要你在生成项目后手动进行配置，否则项目可能无法直接运行。
+脚手架对自动集成的第三方插件都提供了默认的配置，但是有一些外部资源依赖（如mysql db, eureka server等）可能需要你在生成项目后手动进行配置，否则项目可能无法直接运行。
 
 ## Development Reference
 
