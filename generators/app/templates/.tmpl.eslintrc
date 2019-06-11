@@ -1,3 +1,21 @@
 {
-  "extends": "eslint-config-egg"
+  "extends": "eslint-config-egg",
+  "rules": {
+    "linebreak-style": [
+      "off"
+    ],
+    "no-use-before-define": [
+      "off",
+      {
+        "functions": true,
+        "classes": true
+      }
+    ],
+    "eqeqeq": "warn",
+    "valid-jsdoc": "off",
+    "no-unused-vars": "warn",
+    "prefer-const": "warn",
+    "quotes": "warn",
+    "no-trailing-spaces": "off"
+  }
 }
