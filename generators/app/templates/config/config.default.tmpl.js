@@ -37,7 +37,6 @@ module.exports = appInfo => {
     enable: true
   };
 
-  // 从 query或header 获取请求的uuid，设置到 ctx.state.id 中
   config.requestId = {
     expose: 'X-Request-Id',
     enable: true
