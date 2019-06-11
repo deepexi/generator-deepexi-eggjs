@@ -1,13 +1,11 @@
 'use strict';
 
 const Controller = require('egg').Controller;
-
 <%
 print(`
 /**
  * @controller home
- */
-`)
+ */`)
 %>
 class HomeController extends Controller {
   <%
@@ -17,8 +15,7 @@ class HomeController extends Controller {
    * @description say hello when you access
    * @router get /
    * @response 200 msg
-   */
-  `)
+   */`)
   %>
   async index() {
     const { ctx } = this;
