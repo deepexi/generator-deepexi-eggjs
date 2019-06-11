@@ -48,5 +48,14 @@ module.exports = [
     ],
     name: 'db',
     message: '请选择你使用的数据库'
+  },
+  {
+    type: 'list',
+    choices: [
+      'apollo',
+      'none'
+    ],
+    name: 'configservice',
+    message: '请选择你的配置中心类型'
   }
 ];

@@ -50,6 +50,21 @@ module.exports = {
         break;
       }
     }
+
+    switch(configservice){
+      case 'apollo':{
+      print(`
+  apollo: {
+    enable: true,
+    package: '@taccisum/egg-apollo',
+  },
+      `)
+        break;
+      }
+      default: {
+        break;
+      }
+    }
   %>
 
 };

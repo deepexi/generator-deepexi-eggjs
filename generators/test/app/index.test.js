@@ -102,7 +102,7 @@ describe('package.json content', () => {
     })
   })
 
-  describe('optional dependencies', () => {
+  describe('db dependencies', () => {
     describe('mongo', () => {
       let pkg = {};
       before(() => {
@@ -170,17 +170,71 @@ describe('package.json content', () => {
           })
       })
 
-      it('should have dependencies', () => {
+      it('should have not dependencies', () => {
         assert(!pkg.dependencies['egg-mongoose']);
         assert(!pkg.dependencies['egg-sequelize']);
       })
 
-      it('should have config', () => {
+      it('should have not config', () => {
         assert.noFileContent([
           ['config/config.default.js', /config.mongoose.*=/],
           ['config/plugin.js', /mongoose.*:/],
           ['config/config.default.js', /config.sequelize.*=/],
           ['config/plugin.js', /sequelize.*:/]
+        ])
+      })
+    })
+  })
+
+  describe('config service dependencies', () => {
+    describe('apollo', () => {
+      let pkg = {};
+      before(() => {
+        return helpers
+          .run(path.join(__dirname, '../../app'))
+          .withPrompts({
+            author: 'taccisum',
+            configservice: 'apollo'
+          })
+          .then(() => {
+            pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+          })
+      })
+
+      it('should have dependencies', () => {
+        assert(pkg.dependencies['@taccisum/egg-apollo']);
+      })
+
+      it('should have config', () => {
+        assert.fileContent([
+          ['config/config.default.js', /config.apollo.*=/],
+          ['config/plugin.js', /apollo.*:/]
+        ])
+      })
+    })
+
+    describe('none', () => {
+      let pkg = {};
+      before(() => {
+        return helpers
+          .run(path.join(__dirname, '../../app'))
+          .withPrompts({
+            author: 'taccisum',
+            configservice: 'none'
+          })
+          .then(() => {
+            pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+          })
+      })
+
+      it('should have not dependencies', () => {
+        assert(!pkg.dependencies['@taccisum/egg-apollo']);
+      })
+
+      it('should have not config', () => {
+        assert.noFileContent([
+          ['config/config.default.js', /config.apollo.*=/],
+          ['config/plugin.js', /apollo.*:/]
         ])
       })
     })

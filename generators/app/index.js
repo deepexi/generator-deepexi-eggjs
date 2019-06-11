@@ -15,6 +15,7 @@ module.exports = class extends Generator {
     this.option('projectName', { desc: '项目名称', type: String, default: 'deepexi-eggjs' });
     this.option('author', { desc: '作者', type: String, default: 'taccisum' });
     this.option('db', { desc: '数据库', type: String, default: 'none' });
+    this.option('configservice', { desc: '配置中心', type: String, default: 'none' });
   }
 
   catch (e) {
@@ -32,7 +33,8 @@ module.exports = class extends Generator {
         orgName: this.options.orgName,
         projectName: this.options.projectName,
         author: this.options.author,
-        db: this.options.db
+        db: this.options.db,
+        configservice: this.options.configservice
       }
     }
     this.props.dependencies = {

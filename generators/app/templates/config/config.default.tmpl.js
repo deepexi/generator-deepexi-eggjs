@@ -167,6 +167,22 @@ module.exports = appInfo => {
       break;
     }
   }
+
+  switch (configservice) {
+    case 'apollo': {
+      print(`
+  config.apollo = {
+    enabled: true,
+    appId: appInfo.name,
+    // host: 'http://127.0.0.1:8070',
+  };
+      `);
+      break;
+    }
+    default: {
+      break;
+    }
+  }
   %>
 
   return {
