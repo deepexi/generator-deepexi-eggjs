@@ -110,7 +110,7 @@ module.exports = appInfo => {
     print(`
   config.swaggerdoc = {
     enable: true,
-    basePath: '/' + appInfo.name,
+    basePath: '/' + userConfig.context,
     dirScanner: './app/controller',
     apiInfo: {
       title: appInfo.name + ' Api Docs',
