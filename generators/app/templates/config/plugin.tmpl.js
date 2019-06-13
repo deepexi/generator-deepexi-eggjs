@@ -11,6 +11,14 @@ module.exports = {
     package: 'egg-validate-plus',
   },
   <%
+    if(dependencies.utils){
+      print(`
+  utils: {
+    enable: true,
+    package: '@taccisum/egg-utils',
+  },
+      `);
+    }
     if(dependencies.eureka){
       print(`
   eureka: {

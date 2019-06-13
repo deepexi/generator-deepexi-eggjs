@@ -87,6 +87,7 @@ describe('package.json content', () => {
       assert(pkg.dependencies['egg-validate-plus']);
       assert(pkg.dependencies['@taccisum/egg-eureka']);
       assert(pkg.dependencies['egg-swagger-doc']);
+      assert(pkg.dependencies['@taccisum/egg-utils']);
     })
 
     it('should have config', () => {
@@ -97,7 +98,9 @@ describe('package.json content', () => {
 
         ['config/config.default.js', /config.swagger.*=/],
         ['config/config.prod.js', /swagger.*:/],
-        ['config/plugin.js', /swagger.*:/]
+        ['config/plugin.js', /swagger.*:/],
+
+        ['config/plugin.js', /utils.*:/]
       ])
     })
   })

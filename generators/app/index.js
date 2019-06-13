@@ -38,6 +38,7 @@ module.exports = class extends Generator {
       }
     }
     this.props.dependencies = {
+      utils: true,
       eureka: true,
       swagger: true
     }

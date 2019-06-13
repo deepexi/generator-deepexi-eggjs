@@ -19,6 +19,9 @@ class PackageJsonTemplateHandler extends AbstractTemplateHandler {
   }
 
   _extend (pkgJson) {
+    if (this.props.dependencies.utils) {
+      this._extendDependencies(pkgJson, '@taccisum/egg-utils', '^0.0.1');
+    }
     if (this.props.dependencies.eureka) {
       this._extendDependencies(pkgJson, '@taccisum/egg-eureka', '^1.0.1');
     }
