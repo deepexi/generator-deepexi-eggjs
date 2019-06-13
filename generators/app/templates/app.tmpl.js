@@ -33,7 +33,7 @@ module.exports = class AppBootHook {
     }
     if (overrideConfig) {
       this.app.logger.debug('覆写的配置：' + JSON.stringify(overrideConfig));
-      _.assignIn(this.app.config, overrideConfig);
+      _.merge(this.app.config, overrideConfig);
     }
   }
 };
