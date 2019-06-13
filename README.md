@@ -63,7 +63,7 @@ $ yo deepexi-eggjs -c
 $ yo deepexi-eggjs --help
 ```
 
-#### 4. 升级项目依赖（推荐）
+#### 4. 升级项目依赖（建议执行）
 
 ```bash
 $ npm run autod
