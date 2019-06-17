@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+const onerror = require('deepexi-onerror');
 
 /**
  * @param {Egg.EggAppInfo} appInfo app info
@@ -28,19 +29,20 @@ module.exports = appInfo => {
   config.middleware = [
     'requestId',
     'compress',
-    'errorHandler',
     'notfoundHandler'
   ];
+
+  config.requestId = {
+    expose: 'X-Request-Id',
+    enable: true
+  };
 
   config.compress = {
     threshold: 2048,
     enable: true
   };
 
-  config.requestId = {
-    expose: 'X-Request-Id',
-    enable: true
-  };
+  config.onerror = onerror();
 
   config.security = {
     enable: false,

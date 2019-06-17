@@ -88,6 +88,7 @@ describe('package.json content', () => {
       assert(pkg.dependencies['@taccisum/egg-eureka']);
       assert(pkg.dependencies['egg-swagger-doc']);
       assert(pkg.dependencies['@taccisum/egg-utils']);
+      assert(pkg.dependencies['deepexi-onerror']);
     })
 
     it('should have config', () => {
@@ -100,7 +101,10 @@ describe('package.json content', () => {
         ['config/config.prod.js', /swagger.*:/],
         ['config/plugin.js', /swagger.*:/],
 
-        ['config/plugin.js', /utils.*:/]
+        ['config/plugin.js', /utils.*:/],
+
+        ['config/config.default.js', /require\('deepexi-onerror'\)/],
+        ['config/config.default.js', /config.onerror.*=/]
       ])
     })
   })
