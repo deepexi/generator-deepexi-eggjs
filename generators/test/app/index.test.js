@@ -83,7 +83,6 @@ describe('package.json content', () => {
       assert(pkg.dependencies['egg-validate']);
       assert(pkg.dependencies['koa-logger']);
       assert(pkg.dependencies['koa-compress']);
-      assert(pkg.dependencies['koa-requestid']);
       assert(pkg.dependencies['lodash']);
       assert(pkg.dependencies['egg-validate-plus']);
       assert(pkg.dependencies['@taccisum/egg-eureka']);

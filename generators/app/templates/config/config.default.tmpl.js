@@ -43,15 +43,9 @@ module.exports = appInfo => {
   };
 
   config.middleware = [
-    'requestId',
     'requestLogger',
     'compress',
   ];
-
-  config.requestId = {
-    expose: 'X-Request-Id',
-    enable: true
-  };
 
   config.requestLogger = {
     enable: true,
