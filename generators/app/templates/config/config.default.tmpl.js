@@ -13,7 +13,7 @@ module.exports = appInfo => {
    **/
   const config = exports = {};
 
-  // 应用需要的自定义配置写在这里
+  // 应用需要的自定义配置建议统一写在这里
   const userConfig = {
     context: appInfo.name
   };
@@ -29,22 +29,14 @@ module.exports = appInfo => {
 
   config.security = {
     enable: false,
-    // 一般防止请求伪造，登录成功生成 { _csrf: csrfToken }，把 _csrf 发给客户端，每次请求都带上才是当前用户操作
-    // 如果伪造的就没有 _csrf，自然能防止掉；这边说一下这个功能可能和我们的 前后端分离的 access_token 有点重叠
-    // 建议暂时关闭 T_T.
     csrf: {
-      // 安全威胁CSRF设置： 忽略 JSON 请求
-      // 默认为 false，当设置为 true 时，将会放过所有 content-type 为 `application/json` 的请求
-      // 否则会要求带上 _csrf 参数
       ignoreJSON: true
     }
   };
 
-  // 静态文件
-  // https://github.com/eggjs/egg-static
   config.static = {
-    prefix: '/', // 静态文件url
-    dir: appInfo.baseDir + '/app/public/', // 静态资源的位置,默认地址为app/public
+    prefix: '/',
+    dir: appInfo.baseDir + '/app/public/',
     maxAge: appInfo.env === 'prod' ? 365 * 24 * 60 * 60 : 0,
     // cacheControl: 'no-cache', // Overrides maxAge options.
     gzip: true
