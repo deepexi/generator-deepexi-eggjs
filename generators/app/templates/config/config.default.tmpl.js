@@ -45,6 +45,7 @@ module.exports = appInfo => {
   config.middleware = [
     'requestLogger',
     'compress',
+    'payload'
   ];
 
   config.requestLogger = {
@@ -54,6 +55,10 @@ module.exports = appInfo => {
   config.compress = {
     threshold: 2048,
     enable: true
+  };
+
+  config.payload = {
+    enable: true,
   };
 
   config.logger = {
