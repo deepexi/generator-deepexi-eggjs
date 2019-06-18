@@ -7,6 +7,8 @@ const body = require('deepexi-body');
 module.exports = (opt, app) => {
   return async function payload(ctx, next) {
     await next();
-    ctx.body = body.success(ctx.body || '', '操作成功');
+    if (ctx.status >= 200 && ctx.status < 300) {
+      ctx.body = body.success(ctx.body || '', '操作成功');
+    }
   };
 };
