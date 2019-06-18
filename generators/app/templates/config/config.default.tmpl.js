@@ -25,27 +25,6 @@ module.exports = appInfo => {
     jsonLimit: '10mb'
   };
 
-  // 配置需要的中间件，数组顺序即为中间件的加载顺序，这里的话gzip会去找 middleware/gzip.js
-  config.middleware = [
-    'requestId',
-    'requestLogger',
-    'compress',
-  ];
-
-  config.requestId = {
-    expose: 'X-Request-Id',
-    enable: true
-  };
-
-  config.requestLogger = {
-    enable: true,
-  };
-
-  config.compress = {
-    threshold: 2048,
-    enable: true
-  };
-
   config.onerror = onerror();
 
   config.security = {
@@ -71,17 +50,37 @@ module.exports = appInfo => {
     gzip: true
   };
 
-  config.logrotator = {
-    filesRotateBySize: [
-      path.join(appInfo.root, 'logs', appInfo.name, appInfo.name + '-web.log')
-    ],
-    maxFileSize: 5 * 1024
+  config.middleware = [
+    'requestId',
+    'requestLogger',
+    'compress',
+  ];
+
+  config.requestId = {
+    expose: 'X-Request-Id',
+    enable: true
+  };
+
+  config.requestLogger = {
+    enable: true,
+  };
+
+  config.compress = {
+    threshold: 2048,
+    enable: true
   };
 
   config.logger = {
     level: 'DEBUG',
     consoleLevel: 'DEBUG',
     outputJSON: true
+  };
+
+  config.logrotator = {
+    filesRotateBySize: [
+      path.join(appInfo.root, 'logs', appInfo.name, appInfo.name + '-web.log')
+    ],
+    maxFileSize: 5 * 1024
   };
 
   <%
