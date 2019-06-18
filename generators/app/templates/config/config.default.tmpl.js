@@ -29,12 +29,17 @@ module.exports = appInfo => {
   config.middleware = [
     'requestId',
     'compress',
-    'notfoundHandler'
+    'requestLogger',
+    'notfoundHandler',
   ];
 
   config.requestId = {
     expose: 'X-Request-Id',
     enable: true
+  };
+
+  config.requestLogger = {
+    enable: true,
   };
 
   config.compress = {

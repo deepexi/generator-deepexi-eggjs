@@ -6,6 +6,9 @@ module.exports = () => {
       level: 'INFO',
       consoleLevel: 'INFO'
     },
+    requestLogger: {
+      enable: false,
+    };
     <%
     if (dependencies.swagger) {
       print(`
