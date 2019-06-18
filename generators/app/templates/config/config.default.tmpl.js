@@ -28,9 +28,8 @@ module.exports = appInfo => {
   // 配置需要的中间件，数组顺序即为中间件的加载顺序，这里的话gzip会去找 middleware/gzip.js
   config.middleware = [
     'requestId',
-    'compress',
     'requestLogger',
-    'notfoundHandler',
+    'compress',
   ];
 
   config.requestId = {
