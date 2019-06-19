@@ -276,6 +276,7 @@ describe('package.json content', () => {
     })
 
     describe('router-plus', () => {
+      let pkg;
       before(() => {
         return helpers
           .run(path.join(__dirname, '../../app'))
@@ -284,11 +285,22 @@ describe('package.json content', () => {
             router: 'router-plus'
           })
           .then(() => {
+            pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
           })
       })
 
       it('should exist files', () => {
         assert.file('app/router/home.js')
+      })
+
+      it('should have dependencies', () => {
+        assert(pkg.dependencies['egg-router-plus']);
+      })
+
+      it('should have config', () => {
+        assert.fileContent([
+          ['config/plugin.js', /routerPlus.*:/]
+        ])
       })
     })
   })

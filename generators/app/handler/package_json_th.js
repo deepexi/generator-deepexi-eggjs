@@ -22,6 +22,10 @@ class PackageJsonTemplateHandler extends AbstractTemplateHandler {
     this._extendDependencies(pkgJson, 'deepexi-body', '^0.0.1');
     this._extendDependencies(pkgJson, 'deepexi-onerror', '^0.1.2');
 
+    if (this.props.router === 'router-plus') {
+      this._extendDependencies(pkgJson, 'egg-router-plus', '^1.3.0');
+    }
+
     if (this.props.dependencies.utils) {
       this._extendDependencies(pkgJson, '@taccisum/egg-utils', '^0.0.1');
     }

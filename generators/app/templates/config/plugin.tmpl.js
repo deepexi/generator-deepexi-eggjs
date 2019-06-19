@@ -11,6 +11,14 @@ module.exports = {
     package: 'egg-validate-plus',
   },
   <%
+    if(router === 'router-plus'){
+      print(`
+  routerPlus: {
+    enable: true,
+    package: 'egg-router-plus',
+  },
+      `);
+    }
     if(dependencies.utils){
       print(`
   utils: {
