@@ -6,7 +6,7 @@
 module.exports = app => {
   const { router, controller } = app;
 
-  const homeRouter = router.namespace(`/<%= "${app.config.context}" %>/`);
+  const homeRouter = router.namespace(`/<%= "${app.config.context}" %>`);
 
   homeRouter.get('/', controller.home.index);
 };
