@@ -256,4 +256,40 @@ describe('package.json content', () => {
       })
     })
   })
+
+  describe('router dependencies', () => {
+    describe('default', () => {
+      before(() => {
+        return helpers
+          .run(path.join(__dirname, '../../app'))
+          .withPrompts({
+            author: 'taccisum',
+            router: 'default'
+          })
+          .then(() => {
+          })
+      })
+
+      it('should exist files', () => {
+        assert.file('app/router.js')
+      })
+    })
+
+    describe('router-plus', () => {
+      before(() => {
+        return helpers
+          .run(path.join(__dirname, '../../app'))
+          .withPrompts({
+            author: 'taccisum',
+            router: 'router-plus'
+          })
+          .then(() => {
+          })
+      })
+
+      it('should exist files', () => {
+        assert.file('app/router/home.js')
+      })
+    })
+  })
 })
