@@ -59,6 +59,7 @@ module.exports = appInfo => {
 
   config.payload = {
     enable: true,
+    match: '/' + userConfig.context,
   };
 
   config.logger = {
