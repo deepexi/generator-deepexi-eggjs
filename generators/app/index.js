@@ -14,6 +14,7 @@ module.exports = class extends Generator {
     this.option('orgName', { desc: '组织名称', type: String, default: '' });
     this.option('projectName', { desc: '项目名称', type: String, default: 'deepexi-eggjs' });
     this.option('author', { desc: '作者', type: String, default: 'taccisum' });
+    this.option('router', { desc: '路由组件', type: String, default: 'default' });
     this.option('db', { desc: '数据库', type: String, default: 'none' });
     this.option('configservice', { desc: '配置中心', type: String, default: 'none' });
   }

@@ -42,6 +42,15 @@ module.exports = [
   {
     type: 'list',
     choices: [
+      'router-plus',
+      'default'
+    ],
+    name: 'router',
+    message: '请选择路由组件'
+  },
+  {
+    type: 'list',
+    choices: [
       'mongo',
       'mysql',
       'none'
