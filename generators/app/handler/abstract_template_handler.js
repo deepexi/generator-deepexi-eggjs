@@ -8,7 +8,18 @@ class AbstractTemplateHandler {
   }
 
   handle () {
-    throw new Error('must implement handle()');
+    if (this._ignore()) {
+      return;
+    }
+    this._handle0();
+  }
+
+  _ignore () {
+    return false;
+  }
+
+  _handle0 () {
+    throw new Error('must implement _handle0()');
   }
 }
 

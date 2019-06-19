@@ -5,7 +5,7 @@ const _ = require('lodash')
 const fileUtils = require('../../util/file_utils')
 
 class PackageJsonTemplateHandler extends AbstractTemplateHandler {
-  handle () {
+  _handle0 () {
     const pkgJson = JSON.parse(this._readTemplate());
     this._extend(pkgJson)
 

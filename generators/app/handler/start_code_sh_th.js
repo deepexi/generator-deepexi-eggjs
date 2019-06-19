@@ -5,7 +5,7 @@ const _ = require('lodash')
 const fileUtils = require('../../util/file_utils')
 
 class StartCodeTemplateHandler extends AbstractTemplateHandler {
-  handle () {
+  _handle0 () {
     const tpl = _.template(this.generator.fs.read(this.generator.templatePath(this.tmpl)))
     let props = {
       commonScript: `bold=$(tput bold)
