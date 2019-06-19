@@ -36,6 +36,12 @@ describe('generate app', () => {
 
   it('should exists app files', () => {
     assert.file('app/controller/home.js')
+    assert.file('app/contract/response/home.js')
+    assert.file('app/middleware/compress.js')
+    assert.file('app/middleware/payload.js')
+    assert.file('app/middleware/request_logger.js')
+    assert.file('app/model')
+    assert.file('app/service')
   })
 
   it('should exists domain files', () => {
@@ -54,6 +60,7 @@ describe('generate app', () => {
 
   it('should exists unit test files', () => {
     assert.file('test/app/controller/home.test.js')
+    assert.file('test/domain/index.test.js')
   })
 })
 
