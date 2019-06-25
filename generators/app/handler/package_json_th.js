@@ -51,7 +51,7 @@ class PackageJsonTemplateHandler extends AbstractTemplateHandler {
     }
     switch (this.props.configservice) {
       case 'apollo': {
-        this._extendDependencies(pkgJson, '@taccisum/egg-apollo', '^1.0.1');
+        this._extendDependencies(pkgJson, '@taccisum/egg-apollo', '^1.0.2');
         break;
       }
       default: {
