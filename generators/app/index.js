@@ -35,7 +35,8 @@ module.exports = class extends Generator {
         projectName: this.options.projectName,
         author: this.options.author,
         db: this.options.db,
-        configservice: this.options.configservice
+        configservice: this.options.configservice,
+        router: this.options.router
       }
     }
     this.props.dependencies = {
