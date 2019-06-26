@@ -135,18 +135,18 @@ module.exports = appInfo => {
     case 'mongo': {
       print(`
   config.mongoose = {
-    // url: \`mongodb://\${process.env.DB_HOST || '127.0.0.1:27017'}/your_db\`,
+    // url: 'mongodb://127.0.0.1:27017/your_db',
     options: {},
   };
       `);
       break;
     }
-    case 'mysql':{
+    case 'mysql': {
       print(`
   config.sequelize = {
     dialect: 'mysql',
     // database: 'your_db',
-    // host: process.env.DB_HOST || '127.0.0.1',
+    // host: '127.0.0.1',
     port: '3306',
     username: 'root',
     // password: 'your_password',
