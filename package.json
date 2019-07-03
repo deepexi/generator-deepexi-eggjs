@@ -12,6 +12,8 @@
     "yeoman-generator": "^1.1.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.17.3",
@@ -20,13 +22,21 @@
     "eslint-plugin-standard": "^4.0.0",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^2.0.0",
-    "nyc": "^14.1.1"
+    "husky": "^2.7.0",
+    "nyc": "^14.1.1",
+    "standard-version": "^6.0.1"
   },
   "main": "index.js",
   "scripts": {
     "test": "mocha generators/test/**/*.test.js --reporter spec",
     "lint": "eslint .",
     "cov": "nyc npm run test && nyc report --reporter=text-lcov > coverage.lcov"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm test"
+    }
   },
   "repository": {
     "type": "git",
