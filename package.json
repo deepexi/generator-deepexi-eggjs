@@ -30,7 +30,9 @@
   "scripts": {
     "test": "mocha generators/test/**/*.test.js --reporter spec",
     "lint": "eslint .",
-    "cov": "nyc npm run test && nyc report --reporter=text-lcov > coverage.lcov"
+    "cov": "nyc npm run test && nyc report --reporter=text-lcov > coverage.lcov",
+    "commit": "npx git-cz",
+    "release": "standard-version"
   },
   "husky": {
     "hooks": {
