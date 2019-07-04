@@ -26,19 +26,8 @@ $ npm install -g yo
 
 #### 2. 安装generator-deepexi-eggjs
 
-通过npm安装
-
 ```bash
 $ npm install -g generator-deepexi-eggjs
-```
-
-本地安装
-
-```bash
-$ git clone https://github.com/deepexi/generator-deepexi-eggjs.git
-$ cd generator-deepexi-eggjs
-$ npm i
-$ npm link
 ```
 
 #### 3. 创建你的应用
