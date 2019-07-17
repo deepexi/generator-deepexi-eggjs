@@ -26,6 +26,8 @@ describe('generate app', () => {
     assert.file('.eslintignore')
     assert.file('.autod.conf.js')
     assert.file('filebeat.yml')
+    assert.file('common.sh')
+    assert.file('build.sh')
     assert.file('start-fb.sh')
     assert.file('start-code.sh')
     assert.file('package.json')

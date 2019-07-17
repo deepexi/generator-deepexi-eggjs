@@ -1,6 +1,6 @@
 #!/bin/bash
 
-${commonScript}
+source ./common.sh
 
 #----------------- 参数提取 start -----------------#
 output_log=
@@ -27,13 +27,14 @@ done
 
 cd `dirname $0`
 <%
+    let imgName = `img_name=$\{APP_NAME:-${projectName}\}:v$\{VERSION:-1.0.0\}`;
     if (orgName) {
-        print(`img_name=${orgName}/${projectName}`)
-    } else {
-        print(`img_name=${projectName}`)
+        imgName = `${orgName}/${imgName}`
     }
+    print(imgName);
+
+    print(`\ncontainer_name=$\{APP_NAME:-${projectName}\}`)
 %>
-container_name=${projectName}
 
 env=prod    # 应用执行环境
 workers=4   # eggjs的worker数量
@@ -41,17 +42,7 @@ workers=4   # eggjs的worker数量
 h1 '准备启动应用'$container_name'（基于docker）'
 
 if [ ! -z $build ];then
-    info '获取最新代码'
-    git pull
-    [ ! $? -eq 0 ] && warn '获取最新代码失败'
-    info '从本地构建镜像并运行'
-    docker build -t $img_name .
-    if [ $? -eq 0 ];then
-        success '完成镜像构建'
-    else
-        error '构建镜像失败'
-        exit 3
-    fi
+    sh ./build.sh $img_name
 fi 
 
 info '删除已存在的容器' && docker rm -f $container_name

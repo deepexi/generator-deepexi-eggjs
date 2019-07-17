@@ -38,6 +38,11 @@ $ sh start-code.sh [-bl]
 - -b: 是否从本地构建镜像
 - -l: 是否在启动后输出容器日志
 
+支持的环境变量
+
+- APP_NAME: 指定镜像和容器的名称，默认为${projectName}
+- VERSION: 指定镜像tag，默认为`1.0.0`
+
 ### 其它指令
 
 - 使用 `npm run lint [--fix]` 检查你的代码风格

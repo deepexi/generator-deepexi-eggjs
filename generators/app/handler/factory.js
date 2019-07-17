@@ -1,7 +1,7 @@
 'use strict';
 
 const DefaultTemplateHandler = require('./default_th');
-const StartCodeTemplateHandler = require('./start_code_sh_th');
+const CommonShTemplateHandler = require('./common_sh_th');
 const DockerfileTemplateHandler = require('./dockerfile_th');
 const PackageJsonTemplateHandler = require('./package_json_th');
 const RouterTemplateHandler = require('./router_th');
@@ -17,8 +17,8 @@ class TemplateHandlerFactory {
       case '.tmpl.Dockerfile': {
         Cls = DockerfileTemplateHandler; break;
       }
-      case 'start-code.tmpl.sh': {
-        Cls = StartCodeTemplateHandler; break;
+      case 'common.tmpl.sh': {
+        Cls = CommonShTemplateHandler; break;
       }
       case 'app/router.tmpl.js': {
         Cls = RouterTemplateHandler; break;
