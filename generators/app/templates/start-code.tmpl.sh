@@ -28,12 +28,12 @@ done
 cd `dirname $0`
 
 <%
-    let imgName = `img_name=$\{APP_NAME:-${projectName}\}:v$\{VERSION:-1.0.0\}`;
+    let imgName = `img_name=$\{APP_NAME:-${projectName}\}`;
     if (orgName) {
         imgName = `${orgName}/${imgName}`
     }
     print(imgName);
-
+    print(`\nimg_ver=v$\{VERSION:-1.0.0\}`)
     print(`\ncontainer_name=$\{APP_NAME:-${projectName}\}`)
 
     print(`\n`)
@@ -44,7 +44,7 @@ cd `dirname $0`
 h1 '准备启动应用'$container_name'（基于docker）'
 
 if [ ! -z $build ];then
-    sh ./build.sh $img_name
+    sh ./build.sh $img_name $img_ver
 fi 
 
 info '删除已存在的容器' && docker rm -f $container_name
