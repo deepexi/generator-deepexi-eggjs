@@ -55,6 +55,7 @@ docker run -d --restart=on-failure:5 \
     -p 7001:7001 \
     -v $PWD/logs/:/root/logs/  \
     -v $PWD/run/:/root/run/  \
+    -v /etc/localtime:/etc/localtime \
     -v $PWD/override.js:/root/override.js \
     -e ENV=$env \
     -e WORKERS=$workers \
