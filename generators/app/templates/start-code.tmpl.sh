@@ -26,6 +26,7 @@ done
 #----------------- 启动逻辑 start -----------------#
 
 cd `dirname $0`
+
 <%
     let imgName = `img_name=$\{APP_NAME:-${projectName}\}:v$\{VERSION:-1.0.0\}`;
     if (orgName) {
@@ -34,10 +35,11 @@ cd `dirname $0`
     print(imgName);
 
     print(`\ncontainer_name=$\{APP_NAME:-${projectName}\}`)
-%>
 
-env=prod    # 应用执行环境
-workers=4   # eggjs的worker数量
+    print(`\n`)
+    print(`\nenv=$\{ENV:-prod\}    \# 应用执行环境`)
+    print(`\nworkers=$\{WORKERS:-4\}   \# eggjs的worker数量`)
+%>
 
 h1 '准备启动应用'$container_name'（基于docker）'
 
