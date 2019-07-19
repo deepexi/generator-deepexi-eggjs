@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.1](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.8.0...v1.8.1) (2019-07-19)
+
+
+### Bug Fixes
+
+* **scaffold:** error timezone in docker container ([5ac172d](https://github.com/deepexi/generator-deepexi-eggjs/commit/5ac172d))
+* **scaffold:** missing char 'v' in image tag ([1261c55](https://github.com/deepexi/generator-deepexi-eggjs/commit/1261c55))
+
+
+
 ## [1.8.0](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.7.0...v1.8.0) (2019-07-17)
 
 
