@@ -51,7 +51,7 @@ info '删除已存在的容器' && docker rm -f $container_name
 
 info '准备启动docker容器'
 docker run -d --restart=on-failure:5 \
-    -p 7001:7001 \
+    -p 8080:8080 \
     -v $PWD/logs/:/root/logs/  \
     -v $PWD/run/:/root/run/  \
     -v /etc/localtime:/etc/localtime \

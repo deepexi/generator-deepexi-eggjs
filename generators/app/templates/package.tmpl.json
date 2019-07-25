@@ -32,7 +32,7 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start <%= '--env=${ENV:-prod} --port=${PORT:-7001} --workers=${WORKERS:-4}' %> --title=${projectName}",
+    "start": "egg-scripts start <%= '--env=${ENV:-prod} --port=${PORT:-8080} --workers=${WORKERS:-4}' %> --title=${projectName}",
     "stop": "egg-scripts stop --title=${projectName}",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
