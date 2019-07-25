@@ -33,6 +33,7 @@ describe('generate app', () => {
     assert.file('package.json')
     assert.file('Dockerfile')
     assert.file('entrypoint.sh')
+    assert.file('run.sh')
     assert.file('LICENSE')
     assert.file('README.md')
   })
