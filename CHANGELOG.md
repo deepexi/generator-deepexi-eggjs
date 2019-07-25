@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.2](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.9.1...v1.9.2) (2019-07-25)
+
+
+### Bug Fixes
+
+* orgName must be empty ([8f97ffd](https://github.com/deepexi/generator-deepexi-eggjs/commit/8f97ffd))
+
+
+
 ### [1.9.1](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.9.0...v1.9.1) (2019-07-25)
 
 
