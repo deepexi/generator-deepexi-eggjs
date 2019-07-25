@@ -12,4 +12,8 @@ COPY . /root
 # 在docker中需要加上"--unsafe-perm"才能执行postinstall
 RUN npm i --unsafe-perm --production
 
-CMD npm start
+ADD entrypoint.sh /
+
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
