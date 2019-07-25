@@ -44,6 +44,8 @@ $ sh start-code.sh [-bl]
 - VERSION: 指定镜像tag，默认为`1.0.0`
 - ENV: 指定egg应用运行环境，默认为`prod`
 - WORKERS: 指定egg应用worker数量，默认为`4` 
+
+如果需要自定义启动命令，可以自行修改[`run.sh`](./run.sh)。
  
 ### 其它指令
 
