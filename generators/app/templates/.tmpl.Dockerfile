@@ -1,4 +1,4 @@
-FROM node:latest
+FROM deepexi/node:v0.0.1
 
 USER root
 
