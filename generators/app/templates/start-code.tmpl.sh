@@ -33,7 +33,7 @@ cd `dirname $0`
         imgName = `${orgName}/${imgName}`
     }
     print(imgName);
-    print(`\nimg_ver=v$\{VERSION:-1.0.0\}`)
+    print(`\nimg_ver=$\{VERSION:-1.0.0\}`)
     print(`\ncontainer_name=$\{APP_NAME:-${projectName}\}`)
 
     print(`\n`)
@@ -51,7 +51,6 @@ info '删除已存在的容器' && docker rm -f $container_name
 
 info '准备启动docker容器'
 docker run -d --restart=on-failure:5 \
-    -w /root \
     -p 7001:7001 \
     -v $PWD/logs/:/root/logs/  \
     -v $PWD/run/:/root/run/  \
