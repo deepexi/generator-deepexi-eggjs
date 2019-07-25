@@ -58,7 +58,7 @@ docker run -d --restart=on-failure:5 \
     -v $PWD/override.js:/root/override.js \
     -e ENV=$env \
     -e WORKERS=$workers \
-    --name $container_name $img_name
+    --name $container_name $img_name:v$img_ver
 
 if [ $? -eq 0 ];then
     success '容器启动成功'
