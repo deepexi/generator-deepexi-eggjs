@@ -44,21 +44,19 @@ cd `dirname $0`
 h1 '准备启动应用'$container_name'（基于docker）'
 
 if [ ! -z $build ];then
-    sh ./build.sh $img_name $img_ver
+    . build.sh $img_name $img_ver
 fi 
 
 info '删除已存在的容器' && docker rm -f $container_name
 
 info '准备启动docker容器'
-docker run -d --restart=on-failure:5 \
-    -p 8080:8080 \
-    -v $PWD/logs/:/root/logs/  \
-    -v $PWD/run/:/root/run/  \
-    -v /etc/localtime:/etc/localtime \
-    -v $PWD/override.js:/root/override.js \
-    -e ENV=$env \
-    -e WORKERS=$workers \
-    --name $container_name $img_name:v$img_ver
+
+ENV=$env \
+WORKERS=$workers \
+CONTAINER_NAME=$container_name \
+IMAGE_NAME=$img_name \
+IMAGE_VERSION=$img_ver \
+. run.sh
 
 if [ $? -eq 0 ];then
     success '容器启动成功'
