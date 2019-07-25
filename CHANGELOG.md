@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.8.1...v1.9.0) (2019-07-25)
+
+
+### Bug Fixes
+
+* error image tag ([8dd9dcc](https://github.com/deepexi/generator-deepexi-eggjs/commit/8dd9dcc))
+* error image tag ([c2eada4](https://github.com/deepexi/generator-deepexi-eggjs/commit/c2eada4))
+* remove timezone setting ([4d04f65](https://github.com/deepexi/generator-deepexi-eggjs/commit/4d04f65))
+
+
+### Features
+
+* **scaffold:** add .dockerignore ([43fdcf0](https://github.com/deepexi/generator-deepexi-eggjs/commit/43fdcf0))
+* **scaffold:** provide entrypoint.sh ([e2b3643](https://github.com/deepexi/generator-deepexi-eggjs/commit/e2b3643))
+* **scaffold:** provide run.sh ([d3432c4](https://github.com/deepexi/generator-deepexi-eggjs/commit/d3432c4))
+
+
+### Tests
+
+* missing file ([d3e9290](https://github.com/deepexi/generator-deepexi-eggjs/commit/d3e9290))
+* missing test case ([70f8577](https://github.com/deepexi/generator-deepexi-eggjs/commit/70f8577))
+
+
+
 ### [1.8.1](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.8.0...v1.8.1) (2019-07-19)
 
 
