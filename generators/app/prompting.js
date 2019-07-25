@@ -4,18 +4,7 @@ module.exports = [
   {
     type: 'input',
     name: 'orgName',
-    message: '请输入你的组织名称（可空）',
-    validate: (msg) => {
-      if (!msg) {
-        return true;
-      }
-      // TODO:: check org name
-      // if (regUtils.isWord(msg)) {
-      //   return true;
-      // } else {
-      //   return '组织名称只支持单个英文单词';
-      // }
-    }
+    message: '请输入你的组织名称（可空）'
   },
   {
     type: 'input',
