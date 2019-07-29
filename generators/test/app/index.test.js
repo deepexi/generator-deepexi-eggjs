@@ -24,6 +24,7 @@ describe('generate app', () => {
     assert.file('.npmrc')
     assert.file('.eslintrc')
     assert.file('.eslintignore')
+    assert.file('.editorconfig')
     assert.file('.autod.conf.js')
     assert.file('filebeat.yml')
     assert.file('common.sh')
