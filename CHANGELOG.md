@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.9.2...v1.10.0) (2019-07-30)
+
+
+### Features
+
+* **scaffold:** integrate editorconfig ([116ae16](https://github.com/deepexi/generator-deepexi-eggjs/commit/116ae16))
+
+
+
 ### [1.9.2](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.9.1...v1.9.2) (2019-07-25)
 
 
