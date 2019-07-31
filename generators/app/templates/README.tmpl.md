@@ -9,13 +9,13 @@
 ```bash
 $ npm i
 $ npm run dev
-$ open http://localhost:7001/${projectName}
+$ open http://localhost:8080/${projectName}
 ```
 
 <%
 if(dependencies.swagger){
-    print(`swagger地址：http://localhost:7001/swagger-ui.html  \n`);
-    print(`swagger json：http://127.0.0.1:7001/swagger-doc  \n`);
+    print(`swagger地址：http://localhost:8080/swagger-ui.html  \n`);
+    print(`swagger json：http://127.0.0.1:8080/swagger-doc  \n`);
 }
 %>
 
