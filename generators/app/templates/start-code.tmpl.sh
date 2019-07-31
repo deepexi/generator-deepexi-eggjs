@@ -56,7 +56,7 @@ WORKERS=$workers \
 CONTAINER_NAME=$container_name \
 IMAGE_NAME=$img_name \
 IMAGE_VERSION=$img_ver \
-./run.sh
+sh run.sh
 
 if [ $? -eq 0 ];then
     success '容器启动成功'
