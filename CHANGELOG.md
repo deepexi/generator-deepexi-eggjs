@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.1](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.10.0...v1.10.1) (2019-07-31)
+
+
+### Bug Fixes
+
+* **scaffold:** default port 8080 ([ff1baf1](https://github.com/deepexi/generator-deepexi-eggjs/commit/ff1baf1))
+* run.sh permission denied ([7eeb18f](https://github.com/deepexi/generator-deepexi-eggjs/commit/7eeb18f))
+
+
+
 ## [1.10.0](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.9.2...v1.10.0) (2019-07-30)
 
 
