@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.10.2...v1.11.0) (2019-08-07)
+
+
+### Features
+
+* **scaffold:** provide scaffold_info.md ([304bc20](https://github.com/deepexi/generator-deepexi-eggjs/commit/304bc20))
+* **tool:** provide skywalking integration ([ee9851b](https://github.com/deepexi/generator-deepexi-eggjs/commit/ee9851b))
+
+
+
 ### [1.10.2](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.10.1...v1.10.2) (2019-08-07)
 
 
