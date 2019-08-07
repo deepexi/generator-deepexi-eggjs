@@ -6,7 +6,11 @@
     "generators"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "scaffold",
+    "generator",
+    "deepexi",
+    "eggjs"
   ],
   "dependencies": {
     "yeoman-generator": "^1.1.1"
