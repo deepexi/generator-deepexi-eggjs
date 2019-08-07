@@ -13,7 +13,8 @@
     "eggjs"
   ],
   "dependencies": {
-    "yeoman-generator": "^1.1.1"
+    "yeoman-generator": "^1.1.1",
+    "yo-power-generator": "^0.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",

@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 
 const assert = require('assert');
-const PackageJsonTemplateHandler = require('../../app/handler/package_json_th');
+const PackageJsonTemplateHandler = require('../../app/handler/package_json_th').cls;
 
 describe('package json template handler', () => {
   before(() => {

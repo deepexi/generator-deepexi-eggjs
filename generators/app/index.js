@@ -1,59 +1,108 @@
 'use strict'
-var Generator = require('yeoman-generator');
 
 const path = require('path');
-const fileUtils = require('../util/file_utils');
-const TemplateHandlerFactory = require('./handler/factory');
 
-module.exports = class extends Generator {
-  constructor (args, opts) {
-    super(args, opts);
+const regUtils = require('../util/reg_utils');
 
-    this.option('command', { desc: '使用命令模式（非交互操作）', alias: 'c', type: Boolean, default: false });
-
-    this.option('orgName', { desc: '组织名称', type: String, default: '' });
-    this.option('projectName', { desc: '项目名称', type: String, default: 'deepexi-eggjs' });
-    this.option('author', { desc: '作者', type: String, default: 'taccisum' });
-    this.option('router', { desc: '路由组件', type: String, default: 'default' });
-    this.option('db', { desc: '数据库', type: String, default: 'none' });
-    this.option('configservice', { desc: '配置中心', type: String, default: 'none' });
+const obj = {
+  orgName: {
+    prompting: { type: 'input', message: '请输入你的组织名称（可空）', default: '' },
+    option: { desc: '组织名称', type: String, default: '' }
+  },
+  projectName: {
+    prompting: { type: 'input', message: '请输入你的项目名称', default: 'deepexi-eggjs' },
+    option: { desc: '项目名称', type: String, default: 'deepexi-eggjs' }
+  },
+  author: {
+    prompting: {
+      type: 'input',
+      message: '请输入你的名称',
+      validate: (msg) => {
+        if (msg) {
+          if (regUtils.isEnglishName(msg)) {
+            return true;
+          } else {
+            return '只支持英文名称';
+          }
+        } else {
+          return '名称不能为空';
+        }
+      } },
+    option: { desc: '作者', type: String, default: '' }
+  },
+  router: {
+    prompting: {
+      type: 'list',
+      message: '请选择路由组件',
+      choices: [
+        'router-plus',
+        'default'
+      ]
+    },
+    option: { desc: '路由组件', type: String, default: 'default' }
+  },
+  db: {
+    prompting: {
+      type: 'list',
+      choices: [
+        'mongo',
+        'mysql',
+        'none'
+      ],
+      message: '请选择你使用的数据库'
+    },
+    option: { desc: '数据库', type: String, default: 'none' }
+  },
+  configservice: {
+    prompting: {
+      type: 'list',
+      choices: [
+        'apollo',
+        'none'
+      ],
+      message: '请选择你的配置中心类型'
+    },
+    option: { desc: '配置中心', type: String, default: 'none' }
   }
+  // demo: {
+  //   prompting: {
+  //     type: 'confirm',
+  //     message: '是否为你生成相关的demo文件（默认No）',
+  //     default: false
+  //   },
+  //   option: { desc: '生成demo', type: Boolean, default: false }
+  // }
+}
 
-  catch (e) {
-    // if (e) {
-    // console.log(e)
-    // }
-  };
+module.exports = require('yo-power-generator').getGenerator(obj, {
+  handlerDir: path.join(__dirname, 'handler'),
+  templateDir: path.join(__dirname, 'templates'),
+  afterPropsSet (props) {
+    props.version = require('../../package.json').version
+    props.cli = `yo generator-deepexi-eggjs -c ${props.cli}`;
 
-  async prompting () {
-    if (!this.options.command) {
-      const answers = await this.prompt(require('./prompting'));
-      this.props = answers
-    } else {
-      this.props = {
-        orgName: this.options.orgName,
-        projectName: this.options.projectName,
-        author: this.options.author,
-        db: this.options.db,
-        configservice: this.options.configservice,
-        router: this.options.router
+    props.conditions = {};
+
+    if (props.db !== 'none') {
+      if (props.demo) {
+        props.conditions.crud = true;
       }
     }
-    this.props.dependencies = {
+
+    if (props.router !== 'default') {
+      props.conditions[props.router] = true;
+    } else {
+      props.conditions['default-router'] = true;
+    }
+
+    if (props.configservice !== 'none') {
+      props.conditions[props.configservice] = true;
+    }
+
+    props.dependencies = {
       utils: true,
       eureka: true,
       swagger: true
     }
   }
-
-  write () {
-    const dir = path.join(__dirname, './templates')
-    const files = fileUtils.readAllFileRecursivelySync(dir)
-
-    files.forEach(f => {
-      if (fileUtils.isTemplate(f)) {
-        TemplateHandlerFactory.create(f, this, this.props).handle();
-      }
-    })
-  }
-}
+});

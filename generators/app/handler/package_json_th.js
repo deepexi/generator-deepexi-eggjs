@@ -1,8 +1,8 @@
 'use strict';
 
-const AbstractTemplateHandler = require('./abstract_template_handler');
+const AbstractTemplateHandler = require('yo-power-generator').AbstractTemplateHandler;
 const _ = require('lodash')
-const fileUtils = require('../../util/file_utils')
+const fileUtils = require('yo-power-generator').FileUtils;
 
 class PackageJsonTemplateHandler extends AbstractTemplateHandler {
   _handle0 () {
@@ -68,4 +68,7 @@ class PackageJsonTemplateHandler extends AbstractTemplateHandler {
   }
 }
 
-module.exports = PackageJsonTemplateHandler;
+module.exports = {
+  key: 'pkg',
+  cls: PackageJsonTemplateHandler
+};

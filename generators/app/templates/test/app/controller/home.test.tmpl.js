@@ -15,7 +15,14 @@ describe('test/app/controller/home.test.js', () => {
   it('should GET /${projectName}', () => {
     return app.httpRequest()
       .get('/${projectName}')
-      .expect('{"success":true,"payload":{"msg":"hi, guy"}}')
       .expect(200)
+      .expect({
+        code: 1,
+        message: '操作成功',
+        success: true,
+        payload: {
+          msg: 'hi, guy',
+        },
+      });
   });
 });
