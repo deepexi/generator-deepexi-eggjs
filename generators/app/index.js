@@ -63,6 +63,30 @@ const obj = {
       message: '请选择你的配置中心类型'
     },
     option: { desc: '配置中心', type: String, default: 'none' }
+  },
+  apm: {
+    prompting: {
+      type: 'list',
+      choices: [
+        'skywalking',
+        'none'
+      ],
+      message: '请选择你要接入的APM类型'
+    },
+    option: { desc: 'APM', type: String, default: 'none' },
+    child: {
+      swServers: {
+        prompting: {
+          type: 'input', message: 'Skywalking Servers地址（默认localhost:11800）'
+        },
+        option: { desc: 'Skywalking Servers地址', type: String, default: 'localhost:11800' },
+        callbacks: {
+          trigger (answers) {
+            return answers.apm === 'skywalking';
+          }
+        }
+      }
+    }
   }
   // demo: {
   //   prompting: {

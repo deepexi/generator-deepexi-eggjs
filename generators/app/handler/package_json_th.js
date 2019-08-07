@@ -58,6 +58,17 @@ class PackageJsonTemplateHandler extends AbstractTemplateHandler {
         break;
       }
     }
+
+    switch (this.props.apm) {
+      case 'skywalking': {
+        this._extendDependencies(pkgJson, 'skyapm-egg-require', '^0.1.5');
+        this._extendScript(pkgJson, 'start', `--require skyapm-egg-require --sw_service_name=${this.props.projectName} --sw_direct_Servers=${this.props.swServers || 'localhost:11800'}`)
+        break;
+      }
+      default: {
+        break;
+      }
+    }
   }
 
   _extendDependencies (pkgJson, pkgName, version) {
@@ -65,6 +76,17 @@ class PackageJsonTemplateHandler extends AbstractTemplateHandler {
       pkgJson.dependencies = {};
     }
     pkgJson.dependencies[pkgName] = version;
+  }
+
+  _extendScript (pkgJson, scriptName, content) {
+    if (!pkgJson.scripts) {
+      pkgJson.scripts = {};
+    }
+    if (!pkgJson.scripts[scriptName]) {
+      pkgJson.scripts[scriptName] = content;
+    } else {
+      pkgJson.scripts[scriptName] = `${pkgJson.scripts[scriptName]} ${content}`;
+    }
   }
 }
 

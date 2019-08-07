@@ -309,4 +309,32 @@ describe('package.json content', () => {
       })
     })
   })
+
+  describe('APM dependencies', () => {
+    describe('skywalking', () => {
+      let pkg = {};
+      before(() => {
+        return helpers
+          .run(path.join(__dirname, '../../app'))
+          .withPrompts({
+            author: 'taccisum',
+            apm: 'skywalking',
+            swServers: '192.168.0.111:11800'
+          })
+          .then(() => {
+            pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+          })
+      })
+
+      it('should have dependencies', () => {
+        assert(pkg.dependencies['skyapm-egg-require']);
+      })
+
+      it('should have startup arguments on script', () => {
+        assert(pkg.scripts.start.match(/--require skyapm-egg-require/))
+        assert(pkg.scripts.start.match(/--sw_service_name=deepexi-eggjs/))
+        assert(pkg.scripts.start.match(/--sw_direct_Servers=192.168.0.111:11800/))
+      })
+    })
+  })
 })
