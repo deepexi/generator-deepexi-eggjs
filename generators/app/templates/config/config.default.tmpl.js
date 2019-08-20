@@ -134,8 +134,8 @@ module.exports = appInfo => {
   if (dependencies.tx) {
     print(`
   config.tx = {
-    reqAction:['POST','PUT','DELETE'], 
-    dbType:'${db}',
+    reqAction: ['POST','PUT','DELETE'], 
+    dbType: '${db}',
   };    
     `);
   }
