@@ -43,6 +43,14 @@ module.exports = {
   },
       `);
     }
+    if(dependencies.tx){
+      print(`
+  tx: {
+    enable: true,
+    package: 'egg-tx',
+  },
+      `);
+    }
     switch(db){
       case 'mongo':{
       print(`

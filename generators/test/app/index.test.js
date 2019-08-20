@@ -141,12 +141,15 @@ describe('package.json content', () => {
 
       it('should have dependencies', () => {
         assert(pkg.dependencies['egg-mongoose']);
+        assert(pkg.dependencies['egg-tx']);
       })
 
       it('should have config', () => {
         assert.fileContent([
           ['config/config.default.js', /config.mongoose.*=/],
-          ['config/plugin.js', /mongoose.*:/]
+          ['config/plugin.js', /mongoose.*:/],
+          ['config/config.default.js', /config.tx.*=\s.*\s*.*\s*dbType:\s'mongo'/],
+          ['config/plugin.js', /tx.*:/]
         ])
       })
     })
@@ -168,12 +171,15 @@ describe('package.json content', () => {
       it('should have dependencies', () => {
         assert(pkg.dependencies['egg-sequelize']);
         assert(pkg.dependencies['mysql2']);
+        assert(pkg.dependencies['egg-tx']);
       })
 
       it('should have config', () => {
         assert.fileContent([
           ['config/config.default.js', /config.sequelize.*=/],
-          ['config/plugin.js', /sequelize.*:/]
+          ['config/plugin.js', /sequelize.*:/],
+          ['config/config.default.js', /config.tx.*=\s.*\s*.*\s*dbType:\s'mysql'/],
+          ['config/plugin.js', /tx.*:/]
         ])
       })
     })
@@ -195,6 +201,7 @@ describe('package.json content', () => {
       it('should have not dependencies', () => {
         assert(!pkg.dependencies['egg-mongoose']);
         assert(!pkg.dependencies['egg-sequelize']);
+        assert(!pkg.dependencies['egg-tx']);
       })
 
       it('should have not config', () => {
@@ -202,7 +209,9 @@ describe('package.json content', () => {
           ['config/config.default.js', /config.mongoose.*=/],
           ['config/plugin.js', /mongoose.*:/],
           ['config/config.default.js', /config.sequelize.*=/],
-          ['config/plugin.js', /sequelize.*:/]
+          ['config/plugin.js', /sequelize.*:/],
+          ['config/config.default.js', /config.tx.*=/],
+          ['config/plugin.js', /tx.*:/]
         ])
       })
     })

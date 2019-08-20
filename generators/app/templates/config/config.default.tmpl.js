@@ -75,7 +75,7 @@ module.exports = appInfo => {
     maxFileSize: 5 * 1024
   };
 
-  <%
+<%
   if (dependencies.eureka) {
     print(`
   config.eureka = {
@@ -131,6 +131,15 @@ module.exports = appInfo => {
     `);
   }
 
+  if (dependencies.tx) {
+    print(`
+  config.tx = {
+    reqAction: ['POST','PUT','DELETE'], 
+    dbType: '${db}',
+  };    
+    `);
+  }
+
   switch (db) {
     case 'mongo': {
       print(`
@@ -180,7 +189,7 @@ module.exports = appInfo => {
       break;
     }
   }
-  %>
+%>
 
   return {
     ...config,

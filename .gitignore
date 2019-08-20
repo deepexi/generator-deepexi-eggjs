@@ -7,7 +7,7 @@ node_modules/
 run/
 logs/
 package-lock.json
-
+.idea
 *.lcov
 
 push.sh

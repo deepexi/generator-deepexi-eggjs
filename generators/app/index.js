@@ -27,7 +27,8 @@ const obj = {
         } else {
           return '名称不能为空';
         }
-      } },
+      }
+    },
     option: { desc: '作者', type: String, default: '' }
   },
   router: {
@@ -126,7 +127,8 @@ module.exports = require('yo-power-generator').getGenerator(obj, {
     props.dependencies = {
       utils: true,
       eureka: true,
-      swagger: true
+      swagger: true,
+      tx: (props.db !== 'none')
     }
   }
 });
