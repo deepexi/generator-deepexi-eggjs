@@ -35,6 +35,12 @@ class PackageJsonTemplateHandler extends AbstractTemplateHandler {
     if (this.props.dependencies.swagger) {
       this._extendDependencies(pkgJson, 'egg-swagger-doc', '^2.3.1');
     }
+    if (this.props.dependencies.tx) {
+      this._extendDependencies(pkgJson, 'egg-tx', '^1.0.2');
+    }
+    if (this.props.dependencies.jwt) {
+      this._extendDependencies(pkgJson, '@jackyhweng/egg-jwt', '^1.1.7');
+    }
     switch (this.props.db) {
       case 'mongo': {
         this._extendDependencies(pkgJson, 'egg-mongoose', '^3.1.3');

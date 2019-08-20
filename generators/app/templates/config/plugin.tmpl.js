@@ -43,6 +43,22 @@ module.exports = {
   },
       `);
     }
+    if(dependencies.tx){
+      print(`
+  tx: {
+    enable: true,
+    package: 'egg-tx',
+  },
+      `);
+    }
+    if(dependencies.jwt){
+      print(`
+  jwt: {
+    enable: true,
+    package: "@jackyhweng/egg-jwt"
+  },
+      `);
+    }
     switch(db){
       case 'mongo':{
       print(`
