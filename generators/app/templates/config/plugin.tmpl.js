@@ -51,14 +51,6 @@ module.exports = {
   },
       `);
     }
-    if(dependencies.jwt){
-      print(`
-  jwt: {
-    enable: true,
-    package: "@jackyhweng/egg-jwt"
-  },
-      `);
-    }
     switch(db){
       case 'mongo':{
       print(`

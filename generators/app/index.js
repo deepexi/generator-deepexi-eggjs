@@ -128,7 +128,6 @@ module.exports = require('yo-power-generator').getGenerator(obj, {
       utils: true,
       eureka: true,
       swagger: true,
-      jwt: true,
       tx: (props.db !== 'none')
     }
   }

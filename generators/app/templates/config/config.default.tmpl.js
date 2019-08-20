@@ -140,15 +140,6 @@ module.exports = appInfo => {
     `);
   }
 
-  if (dependencies.jwt) {
-    print(`
-  config.jwt = {
-    enable: false, 
-    match: ['/*'],
-  };    
-    `);
-  }
-
   switch (db) {
     case 'mongo': {
       print(`
