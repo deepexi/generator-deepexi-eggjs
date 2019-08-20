@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.11.0...v1.12.0) (2019-08-20)
+
+
+### Features
+
+* **scaffold:** integrate egg-tx ([#4](https://github.com/deepexi/generator-deepexi-eggjs/issues/4)) ([26402fb](https://github.com/deepexi/generator-deepexi-eggjs/commit/26402fb))
+
+
+
 ## [1.11.0](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.10.2...v1.11.0) (2019-08-07)
 
 
