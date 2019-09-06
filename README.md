@@ -35,7 +35,7 @@ $ npm install -g generator-deepexi-eggjs
 通过交互模式创建
 
 ```bash
-$ mdir {your_project_name}
+$ mkdir {your_project_name}
 $ cd {your_project_name}
 $ yo deepexi-eggjs
 ```
@@ -43,7 +43,7 @@ $ yo deepexi-eggjs
 或者使用命令行模式创建
 
 ```bash
-$ mdir {your_project_name}
+$ mkdir {your_project_name}
 $ cd {your_project_name}
 $ yo deepexi-eggjs -c
 ```
