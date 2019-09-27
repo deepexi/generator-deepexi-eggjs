@@ -65,21 +65,3 @@ $ npm run autod
 #### 5. 自行修改配置
 
 脚手架对自动集成的第三方插件都提供了默认的配置，但是有一些外部资源依赖（如mysql db, eureka server等）可能需要你在生成项目后手动进行配置，否则项目可能无法直接运行。
-
-## Development Reference
-
-### 扩展Prompting
-
-修改`/generators/app/index.js#prompting()`方法进行扩展。
-
-### 增加模板文件
-
-所有模板文件必须以`*.tmpl.*`或`*.tmpl`命名，放在`/generators/app/templates`目录下。脚手架生成时会自动递归扫描该目录，并将模板进行解析，生成相应的文件。
-
-### 指定template handler
-
-如果不做特殊处理，所有的模板文件都会默认通过`/generators/app/handler/default_th`进行处理。
-
-假如这并不能满足你的需求，你需要对某些模板文件做特殊的处理，可以在`/generators/app/handler`目录下扩展你的handler类（命名规范为`*_th.js`，th意为template handler）。该handler类必须继承自`/generators/app/handler/abstract_template_handler`。
-
-最后在`/generators/app/handler/factory`中将你的handler与模板文件关联起来。
