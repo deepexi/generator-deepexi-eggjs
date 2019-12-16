@@ -54,6 +54,17 @@ const obj = {
     },
     option: { desc: '数据库', type: String, default: 'none' }
   },
+  exporter: {
+    prompting: {
+      type: 'list',
+      choices: [
+        'prometheus',
+        'none'
+      ],
+      message: '请选择你的监控配置中心类型'
+    },
+    option: { desc: '监控中心', type: String, default: 'none' }
+  },
   configservice: {
     prompting: {
       type: 'list',
@@ -129,7 +140,8 @@ module.exports = require('yo-power-generator').getGenerator(obj, {
       utils: true,
       eureka: true,
       swagger: true,
-      tx: (props.db !== 'none')
+      tx: (props.db !== 'none'),
+      exporter: (props.exporter !== 'none')
     }
   }
 });
