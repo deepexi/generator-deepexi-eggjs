@@ -38,7 +38,7 @@ class PackageJsonTemplateHandler extends AbstractTemplateHandler {
     if (this.props.dependencies.tx) {
       this._extendDependencies(pkgJson, 'egg-tx', '^1.0.2');
     }
-    if (this.props.dependencies.exporter) {
+    if (this.props.exporter) {
       this._extendDependencies(pkgJson, 'egg-exporter', '^1.1.1')
     }
     switch (this.props.db) {

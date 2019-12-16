@@ -140,7 +140,7 @@ module.exports = appInfo => {
     `);
   }
 
-  if (dependencies.exporter) {
+  if (exporter) {
     print(`
   config.exporter = {
     scrapePort: 13000,

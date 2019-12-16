@@ -56,14 +56,11 @@ const obj = {
   },
   exporter: {
     prompting: {
-      type: 'list',
-      choices: [
-        'prometheus',
-        'none'
-      ],
-      message: '请选择你的监控配置中心类型'
+      type: 'confirm',
+      message: '是否集成 prometheus (默认NO)',
+      default: false
     },
-    option: { desc: '监控中心', type: String, default: 'none' }
+    option: { desc: '集成 prometheus', type: Boolean, default: false }
   },
   configservice: {
     prompting: {
@@ -140,8 +137,7 @@ module.exports = require('yo-power-generator').getGenerator(obj, {
       utils: true,
       eureka: true,
       swagger: true,
-      tx: (props.db !== 'none'),
-      exporter: (props.exporter !== 'none')
+      tx: (props.db !== 'none')
     }
   }
 });
