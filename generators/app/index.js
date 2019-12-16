@@ -1,7 +1,7 @@
 'use strict'
 
 const path = require('path');
-
+const Trigger = require('yo-power-generator').Trigger;
 const regUtils = require('../util/reg_utils');
 
 const obj = {
@@ -82,9 +82,9 @@ const obj = {
         },
         option: { desc: 'Skywalking Servers地址', type: String, default: 'localhost:11800' },
         callbacks: {
-          trigger (answers) {
-            return answers.apm === 'skywalking';
-          }
+          trigger: [
+            new Trigger.AnyAnswerTrigger('apm', 'skywalking')
+          ]
         }
       }
     }
@@ -100,6 +100,7 @@ const obj = {
 }
 
 module.exports = require('yo-power-generator').getGenerator(obj, {
+  description: '该 Egg.js 脚手架为你提供了一个快速开发的环境',
   handlerDir: path.join(__dirname, 'handler'),
   templateDir: path.join(__dirname, 'templates'),
   afterPropsSet (props) {

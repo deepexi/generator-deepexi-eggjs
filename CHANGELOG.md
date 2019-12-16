@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.12.0...v1.13.0) (2019-09-27)
+
+
+### Features
+
+* upgrade yo-power-generator to support scaffold ui ([#7](https://github.com/deepexi/generator-deepexi-eggjs/issues/7)) ([a4e3da0](https://github.com/deepexi/generator-deepexi-eggjs/commit/a4e3da0))
+
+
+
 ## [1.12.0](https://github.com/deepexi/generator-deepexi-eggjs/compare/v1.11.0...v1.12.0) (2019-08-20)
 
 
