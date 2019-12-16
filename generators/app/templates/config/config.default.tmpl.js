@@ -140,6 +140,17 @@ module.exports = appInfo => {
     `);
   }
 
+  if (exporter) {
+    print(`
+  config.exporter = {
+    scrapePort: 13000,
+    prefix: '',
+    scrapePath: '/metrics',
+    defaultLabels: '',
+  };
+    `);
+  }
+
   switch (db) {
     case 'mongo': {
       print(`

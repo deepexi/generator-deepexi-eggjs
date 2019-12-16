@@ -346,4 +346,59 @@ describe('package.json content', () => {
       })
     })
   })
+
+  describe('prometheus dependencies', () => {
+    describe('prometheus', () => {
+      let pkg;
+      before(() => {
+        return helpers
+          .run(path.join(__dirname, '../../app'))
+          .withPrompts({
+            author: 'taccisum',
+            exporter: 'prometheus'
+          })
+          .then(() => {
+            pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+          })
+      })
+
+      it('should have dependencies', () => {
+        assert(pkg.dependencies['egg-exporter']);
+      })
+
+      it('should have config', () => {
+        assert.fileContent([
+          ['config/config.default.js', /config.exporter.*=/],
+          ['config/plugin.js', /exporter.*:/]
+        ])
+      })
+    })
+
+    describe('none', () => {
+      let pkg = {};
+      before(() => {
+        return helpers
+          .run(path.join(__dirname, '../../app'))
+          .withPrompts({
+            author: 'taccisum',
+            exporter: 'none'
+          })
+          .then(() => {
+            pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+          })
+      })
+
+      it('should have not dependencies', () => {
+        assert(!pkg.dependencies['egg-exporter']);
+      })
+
+      it('should have not config', () => {
+        assert.noFileContent([
+          ['config/config.default.js', /config.exporter.*=/],
+          ['config/plugin.js', /exporter.*:/]
+        ])
+      })
+    })
+  })
 })
+

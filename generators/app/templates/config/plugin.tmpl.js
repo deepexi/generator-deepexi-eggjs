@@ -51,6 +51,16 @@ module.exports = {
   },
       `);
     }
+
+    if(exporter){
+      print(`
+  exporter: {
+    enable: true,
+    package: 'egg-exporter',
+  },
+      `);
+    }
+
     switch(db){
       case 'mongo':{
       print(`

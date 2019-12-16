@@ -54,6 +54,14 @@ const obj = {
     },
     option: { desc: '数据库', type: String, default: 'none' }
   },
+  exporter: {
+    prompting: {
+      type: 'confirm',
+      message: '是否集成 prometheus (默认NO)',
+      default: false
+    },
+    option: { desc: '集成 prometheus', type: Boolean, default: false }
+  },
   configservice: {
     prompting: {
       type: 'list',
