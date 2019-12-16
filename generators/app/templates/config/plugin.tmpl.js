@@ -52,7 +52,7 @@ module.exports = {
       `);
     }
 
-    if(dependencies.exporter){
+    if(exporter){
       print(`
   exporter: {
     enable: true,
